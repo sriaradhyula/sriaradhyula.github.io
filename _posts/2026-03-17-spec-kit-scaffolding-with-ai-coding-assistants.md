@@ -42,19 +42,15 @@ Spec-kit defines a four-phase pipeline that takes you from idea to production co
 
 ```mermaid
 flowchart LR
-    A["Idea"] --> B["/speckit.specify"]
-    B --> C["spec.md<br/><i>what & why</i>"]
-    C --> D["/speckit.plan"]
-    D --> E["plan.md<br/><i>how</i>"]
-    E --> F["/speckit.tasks"]
-    F --> G["tasks.md<br/><i>execution order</i>"]
-    G --> H["/speckit.implement"]
-    H --> I["Source Code<br/>+ Tests"]
-    I --> J["PR Review"]
+    A["Idea"] -- specify --> B["spec.md"]
+    B -- plan --> C["plan.md"]
+    C -- tasks --> D["tasks.md"]
+    D -- implement --> E["Code + Tests"]
+    E --> F["PR Review"]
 
     style A fill:#4a9eff,color:#fff
-    style I fill:#22c55e,color:#fff
-    style J fill:#f59e0b,color:#fff
+    style E fill:#22c55e,color:#fff
+    style F fill:#f59e0b,color:#fff
 ```
 
 ```text
@@ -80,7 +76,7 @@ You describe a feature in natural language. The `/speckit.specify` command gener
 ```
 
 The command automatically:
-- Creates a numbered feature branch (`prebuild/feat/<###-feature-name>`)
+- Creates a numbered feature branch (e.g., `001-feature-name`)
 - Generates a spec from your description
 - Runs a quality validation checklist (completeness, clarity, measurability)
 - Limits ambiguity markers to at most 3 critical questions
@@ -113,7 +109,7 @@ Tasks marked `[P]` can run in parallel. Tasks tagged `[US1]`, `[US2]` map back t
 
 ## The Constitution: Governing Principles for Agents
 
-The most powerful concept in spec-kit is the **constitution**. It lives at `.specify/CONSTITUTION.md` and defines non-negotiable principles that every AI agent session must follow.
+The most powerful concept in spec-kit is the **constitution**. It lives at `.specify/memory/constitution.md` and defines non-negotiable principles that every AI agent session must follow.
 
 Here's a real example from the [CAIPE project](https://github.com/cnoe-io/ai-platform-engineering):
 
@@ -135,49 +131,15 @@ The constitution also defines:
 - **Branching conventions** (`prebuild/<type>/<description>`)
 - **Commit style** (Conventional Commits + DCO sign-off)
 - **Bug handling tiers** (spec violation vs. spec gap vs. design flaw)
-- **Agent autonomy levels** (from tab-complete to background agents)
-
 When `/speckit.plan` runs, it performs a **constitution check** — verifying that the implementation plan doesn't violate any governing principles.
 
 ### Bug Handling Tiers
 
 The constitution classifies bugs by their relationship to specifications:
 
-```mermaid
-flowchart TD
-    BUG["Bug Discovered"] --> Q1{"Does a spec<br/>cover this behavior?"}
-    Q1 -->|Yes| Q2{"Does code match<br/>the spec?"}
-    Q1 -->|No| Q3{"Is it an<br/>edge case?"}
-
-    Q2 -->|No| T1["Tier 1: Spec Violation<br/>Fix the code"]
-    Q2 -->|Yes| T3["Not a bug — works as specified"]
-
-    Q3 -->|Yes| T2["Tier 2: Spec Gap<br/>Update spec, then fix code"]
-    Q3 -->|No| T3B["Tier 3: Design Flaw<br/>New spec via /speckit.specify"]
-
-    style T1 fill:#22c55e,color:#fff
-    style T2 fill:#f59e0b,color:#fff
-    style T3B fill:#ef4444,color:#fff
-```
-
-### Agent Autonomy Levels
-
-The constitution defines progressive autonomy levels, inspired by [The 8 Levels of Agentic Engineering](https://www.bassimeledath.com/blog/levels-of-agentic-engineering):
-
-```mermaid
-graph LR
-    L1["L1: Tab Complete"] --> L2["L2: Agent IDE"]
-    L2 --> L3["L3: Context Engineering"]
-    L3 --> L4["L4: Compounding Engineering"]
-    L4 --> L5["L5: MCP & Skills"]
-    L5 --> L6["L6: Harness Engineering"]
-    L6 --> L7["L7: Background Agents"]
-
-    style L6 fill:#4a9eff,color:#fff,stroke:#2563eb,stroke-width:3px
-```
-
-> CAIPE targets **Level 6** (Harness Engineering) — agents have access to live data and feedback loops, while humans work on the system itself.
-{: .prompt-info }
+- **Tier 1 — Spec Violation**: A spec covers the behavior but the code doesn't match it. Fix the code.
+- **Tier 2 — Spec Gap**: The bug is an edge case no spec addresses. Update the spec, then fix the code.
+- **Tier 3 — Design Flaw**: No spec covers it and it's not just an edge case. Start fresh with `/speckit.specify`.
 
 ## Directory Structure
 
@@ -185,69 +147,27 @@ Here's what `.specify/` looks like in practice:
 
 ```text
 .specify/
-├── CONSTITUTION.md            # Governing principles
-├── ARCHITECTURE.md            # High-level architecture
-├── TESTING.md                 # Quality gates and test strategy
-├── SKILLS.md                  # Skills inventory and conventions
-├── SPECS.md                   # Specs and plans conventions
-├── CHANGELOG.md               # Version history
 ├── memory/
-│   └── constitution.md        # Symlink → ../CONSTITUTION.md
+│   └── constitution.md        # Governing principles
 ├── templates/
+│   ├── agent-file-template.md
 │   ├── constitution-template.md
 │   ├── spec-template.md
 │   ├── plan-template.md
 │   ├── tasks-template.md
-│   ├── checklist-template.md
-│   └── commands/              # Canonical slash command sources
-│       ├── specify.md
-│       ├── plan.md
-│       ├── tasks.md
-│       ├── implement.md
-│       └── constitution.md
-└── scripts/                   # Automation scripts
+│   └── checklist-template.md
+└── scripts/
+    └── bash/                  # Automation scripts
+        ├── check-prerequisites.sh
+        ├── create-new-feature.sh
+        └── setup-plan.sh
 ```
 
-The `templates/commands/` directory contains the **canonical source** for slash commands. These are then copied to `.cursor/commands/speckit.*.md` (for Cursor) and `.claude/commands/speckit.*.md` (for Claude Code).
+The `specify init` CLI also installs slash commands directly into your agent's command directory (e.g., `.cursor/commands/speckit.*.md` or `.claude/commands/speckit.*.md`).
 
 ## How It Works with Claude Code and Cursor
 
-```mermaid
-flowchart TB
-    subgraph Templates [".specify/templates/commands/"]
-        T1["specify.md"]
-        T2["plan.md"]
-        T3["tasks.md"]
-        T4["implement.md"]
-        T5["constitution.md"]
-    end
-
-    subgraph Cursor [".cursor/commands/"]
-        C1["speckit.specify.md"]
-        C2["speckit.plan.md"]
-        C3["speckit.tasks.md"]
-        C4["speckit.implement.md"]
-        C5["speckit.constitution.md"]
-    end
-
-    subgraph Claude [".claude/commands/"]
-        CL1["speckit.specify.md"]
-        CL2["speckit.plan.md"]
-        CL3["speckit.tasks.md"]
-        CL4["speckit.implement.md"]
-        CL5["speckit.constitution.md"]
-    end
-
-    T1 --> C1 & CL1
-    T2 --> C2 & CL2
-    T3 --> C3 & CL3
-    T4 --> C4 & CL4
-    T5 --> C5 & CL5
-
-    style Templates fill:#6366f1,color:#fff
-    style Cursor fill:#22c55e,color:#fff
-    style Claude fill:#f59e0b,color:#fff
-```
+When you run `specify init --ai cursor-agent` (or `--ai claude`), the CLI installs slash commands directly into the agent's command directory. Both tools get the same commands from the same spec-kit release.
 
 ### Cursor
 
@@ -276,7 +196,7 @@ A typical `CLAUDE.md` ties everything together:
 
 ### Both Get the Same Context
 
-Because the commands are **generated from the same templates** in `.specify/templates/commands/`, both tools follow identical workflows. The constitution, templates, and scripts are shared. This means:
+Because both tools receive their commands from the **same spec-kit release** via `specify init`, both follow identical workflows. The constitution, templates, and scripts are shared. This means:
 
 - Switching between Claude Code and Cursor mid-project is seamless
 - Both agents produce specs in the same format
@@ -308,82 +228,39 @@ The `/speckit.checklist` command is particularly interesting — it treats your 
 
 ## What Generated Code Looks Like
 
-When `/speckit.implement` runs, it produces code that traces back to the spec. Here's an example of a LangGraph agent generated from a CAIPE spec:
+When `/speckit.implement` runs, it produces code that traces back to the spec. Notice how the docstring references acceptance criteria from the spec, and each test maps directly to one:
 
 ```python
-# ai_platform_engineering/agents/pagerduty/graph.py
-# Generated from: docs/docs/specs/087-pagerduty-agent/spec.md
+# src/incidents.py — generated from spec.md
 
-from langgraph.graph import StateGraph, END
-from langgraph.checkpoint.memory import MemorySaver
-from typing import TypedDict, Annotated
-
-
-class PagerDutyState(TypedDict):
-    """State for the PagerDuty agent graph."""
-    messages: Annotated[list, "Chat messages"]
-    incident_id: str | None
-    incident_data: dict | None
-    action_result: str | None
-
-
-def create_pagerduty_graph() -> StateGraph:
-    """Build the PagerDuty agent execution graph.
+def get_incident(incident_id: str) -> dict:
+    """Fetch an incident by ID.
 
     Spec acceptance criteria:
     - AC-1: Incidents are retrievable by ID
     - AC-2: Response includes severity, status, assignee
-    - AC-3: Query completes in under 2 seconds
     """
-    builder = StateGraph(PagerDutyState)
-
-    builder.add_node("parse_request", parse_request)
-    builder.add_node("fetch_incident", fetch_incident)
-    builder.add_node("format_response", format_response)
-
-    builder.set_entry_point("parse_request")
-    builder.add_edge("parse_request", "fetch_incident")
-    builder.add_edge("fetch_incident", "format_response")
-    builder.add_edge("format_response", END)
-
-    return builder.compile(checkpointer=MemorySaver())
+    response = client.get(f"/incidents/{incident_id}")
+    response.raise_for_status()
+    return response.json()
 ```
-
-And the corresponding test, derived directly from the spec's acceptance criteria:
 
 ```python
-# tests/test_pagerduty_agent.py
-import pytest
-from unittest.mock import AsyncMock, patch
+# tests/test_incidents.py
 
-
-@pytest.mark.asyncio
-async def test_fetch_incident_by_id():
+def test_fetch_incident_by_id():
     """AC-1: Incidents are retrievable by ID."""
-    graph = create_pagerduty_graph()
-    result = await graph.ainvoke({
-        "messages": [],
-        "incident_id": "P12345",
-    })
-    assert result["incident_data"] is not None
-    assert result["incident_data"]["id"] == "P12345"
+    result = get_incident("P12345")
+    assert result["id"] == "P12345"
 
-
-@pytest.mark.asyncio
-async def test_incident_response_fields():
+def test_incident_response_fields():
     """AC-2: Response includes severity, status, and assignee."""
-    graph = create_pagerduty_graph()
-    result = await graph.ainvoke({
-        "messages": [],
-        "incident_id": "P12345",
-    })
-    data = result["incident_data"]
-    assert "severity" in data
-    assert "status" in data
-    assert "assignee" in data
+    result = get_incident("P12345")
+    for field in ("severity", "status", "assignee"):
+        assert field in result
 ```
 
-> Every test function traces back to an acceptance criterion in the spec. If the spec changes, the tests change first — **Red-Green-Refactor** is enforced by the constitution.
+> Every test traces back to an acceptance criterion in the spec. If the spec changes, the tests change first — **Red-Green-Refactor** is enforced by the constitution.
 {: .prompt-tip }
 
 ## How This Blog Was Scaffolded
@@ -400,14 +277,14 @@ The entire setup — repo creation, theme selection, configuration, and this blo
 
 To adopt spec-kit in your own project:
 
-1. **Create the `.specify/` directory** with a constitution:
+1. **Install the Specify CLI** and initialize your project:
 
    ```bash
-   # In Claude Code or Cursor:
-   /speckit.constitution
+   uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
+   specify init --here --ai cursor-agent   # or --ai claude
    ```
 
-2. **Define your principles** — what's non-negotiable? Testing requirements? Commit conventions? Security constraints?
+2. **Create the constitution** with `/speckit.constitution` — define what's non-negotiable: testing requirements, commit conventions, security constraints.
 
 3. **Start your first feature**:
 
@@ -418,8 +295,6 @@ To adopt spec-kit in your own project:
    /speckit.implement
    ```
 
-4. **Copy commands** to both `.claude/commands/` and `.cursor/commands/` so your team can use either tool.
-
 ## The Full Picture
 
 Here's how all the pieces fit together — from the `.specify/` institutional memory through to deployed code:
@@ -427,10 +302,7 @@ Here's how all the pieces fit together — from the `.specify/` institutional me
 ```mermaid
 flowchart TB
     subgraph Memory [".specify/ — Institutional Memory"]
-        CONST["CONSTITUTION.md"]
-        ARCH["ARCHITECTURE.md"]
-        TEST["TESTING.md"]
-        SKILLS["SKILLS.md"]
+        CONST["memory/constitution.md"]
         TMPL["templates/"]
     end
 
@@ -466,16 +338,20 @@ flowchart TB
     style CI fill:#dc2626,color:#fff
 ```
 
-## Why This Matters
+## Conclusion
 
-As AI coding assistants become central to engineering workflows, the bottleneck shifts from **writing code** to **maintaining intent**. Spec-kit addresses this by:
+As AI coding assistants become central to engineering workflows, the bottleneck shifts from **writing code** to **maintaining intent**. OpenAI's [harness engineering](https://openai.com/index/harness-engineering/) experiment demonstrated this vividly — a team shipped a million lines of fully agent-generated code by investing not in writing code, but in designing environments, specifying intent, and building feedback loops. Their key insight mirrors what spec-kit encodes: *humans steer, agents execute*.
+
+This is the direction most engineering projects are heading. As teams push toward higher levels of agent autonomy — where agents own execution end-to-end and humans focus on architecture, specifications, and quality systems — the scaffolding around the AI becomes more important than the code it produces.
+
+Spec-kit addresses this shift by:
 
 - Making specifications the durable artifact (code is regenerable)
 - Giving AI agents a constitution to follow across sessions
 - Standardizing the workflow so it works with any AI tool
 - Providing quality gates that catch drift before it ships
 
-The spec is the spec. The code is just one possible output.
+The spec is the spec. The code is just one possible output. The teams that invest in this scaffolding now — constitutions, spec workflows, institutional memory — will be the ones best positioned as agents take on increasingly autonomous roles in the software lifecycle.
 
 ---
 
