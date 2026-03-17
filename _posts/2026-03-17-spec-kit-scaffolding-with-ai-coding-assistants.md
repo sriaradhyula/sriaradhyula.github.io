@@ -260,18 +260,8 @@ def test_incident_response_fields():
         assert field in result
 ```
 
-> Every test traces back to an acceptance criterion in the spec. If the spec changes, the tests change first — **Red-Green-Refactor** is enforced by the constitution.
+> Every test traces back to an acceptance criterion in the spec. If the spec changes, the tests change first.
 {: .prompt-tip }
-
-## How This Blog Was Scaffolded
-
-This very blog site (`sriaradhyula.github.io`) was set up using Claude Code with the spec-kit methodology in mind:
-
-1. **Created the repo** from the [chirpy-starter](https://github.com/cotes2020/chirpy-starter) template
-2. **Configured** `_config.yml` with site metadata, Giscus comments (backed by GitHub Discussions), and analytics
-3. **Wrote this post** by reading the spec-kit documentation directly from the source repo
-
-The entire setup — repo creation, theme selection, configuration, and this blog post — was done in a single Claude Code session, demonstrating how AI assistants can bootstrap non-trivial projects when given the right context and workflow.
 
 ## Getting Started
 
