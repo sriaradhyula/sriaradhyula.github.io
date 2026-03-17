@@ -7,6 +7,7 @@ description: >-
   How GitHub's spec-kit provides spec-driven scaffolding for AI coding assistants
   like Claude Code and Cursor, and how we adopted it in the CAIPE project.
 pin: true
+mermaid: true
 ---
 
 ## The Problem: AI Assistants Without Context
@@ -38,6 +39,23 @@ The key insight is that AI assistants are **first-class contributors**. The `.sp
 ## The Spec-Driven Workflow
 
 Spec-kit defines a four-phase pipeline that takes you from idea to production code:
+
+```mermaid
+flowchart LR
+    A["Idea"] --> B["/speckit.specify"]
+    B --> C["spec.md<br/><i>what & why</i>"]
+    C --> D["/speckit.plan"]
+    D --> E["plan.md<br/><i>how</i>"]
+    E --> F["/speckit.tasks"]
+    F --> G["tasks.md<br/><i>execution order</i>"]
+    G --> H["/speckit.implement"]
+    H --> I["Source Code<br/>+ Tests"]
+    I --> J["PR Review"]
+
+    style A fill:#4a9eff,color:#fff
+    style I fill:#22c55e,color:#fff
+    style J fill:#f59e0b,color:#fff
+```
 
 ```text
 /speckit.specify <description>   → spec.md    (what and why)
@@ -121,6 +139,46 @@ The constitution also defines:
 
 When `/speckit.plan` runs, it performs a **constitution check** — verifying that the implementation plan doesn't violate any governing principles.
 
+### Bug Handling Tiers
+
+The constitution classifies bugs by their relationship to specifications:
+
+```mermaid
+flowchart TD
+    BUG["Bug Discovered"] --> Q1{"Does a spec<br/>cover this behavior?"}
+    Q1 -->|Yes| Q2{"Does code match<br/>the spec?"}
+    Q1 -->|No| Q3{"Is it an<br/>edge case?"}
+
+    Q2 -->|No| T1["Tier 1: Spec Violation<br/>Fix the code"]
+    Q2 -->|Yes| T3["Not a bug — works as specified"]
+
+    Q3 -->|Yes| T2["Tier 2: Spec Gap<br/>Update spec, then fix code"]
+    Q3 -->|No| T3B["Tier 3: Design Flaw<br/>New spec via /speckit.specify"]
+
+    style T1 fill:#22c55e,color:#fff
+    style T2 fill:#f59e0b,color:#fff
+    style T3B fill:#ef4444,color:#fff
+```
+
+### Agent Autonomy Levels
+
+The constitution defines progressive autonomy levels, inspired by [The 8 Levels of Agentic Engineering](https://www.bassimeledath.com/blog/levels-of-agentic-engineering):
+
+```mermaid
+graph LR
+    L1["L1: Tab Complete"] --> L2["L2: Agent IDE"]
+    L2 --> L3["L3: Context Engineering"]
+    L3 --> L4["L4: Compounding Engineering"]
+    L4 --> L5["L5: MCP & Skills"]
+    L5 --> L6["L6: Harness Engineering"]
+    L6 --> L7["L7: Background Agents"]
+
+    style L6 fill:#4a9eff,color:#fff,stroke:#2563eb,stroke-width:3px
+```
+
+> CAIPE targets **Level 6** (Harness Engineering) — agents have access to live data and feedback loops, while humans work on the system itself.
+{: .prompt-info }
+
 ## Directory Structure
 
 Here's what `.specify/` looks like in practice:
@@ -154,6 +212,43 @@ The `templates/commands/` directory contains the **canonical source** for slash 
 
 ## How It Works with Claude Code and Cursor
 
+```mermaid
+flowchart TB
+    subgraph Templates [".specify/templates/commands/"]
+        T1["specify.md"]
+        T2["plan.md"]
+        T3["tasks.md"]
+        T4["implement.md"]
+        T5["constitution.md"]
+    end
+
+    subgraph Cursor [".cursor/commands/"]
+        C1["speckit.specify.md"]
+        C2["speckit.plan.md"]
+        C3["speckit.tasks.md"]
+        C4["speckit.implement.md"]
+        C5["speckit.constitution.md"]
+    end
+
+    subgraph Claude [".claude/commands/"]
+        CL1["speckit.specify.md"]
+        CL2["speckit.plan.md"]
+        CL3["speckit.tasks.md"]
+        CL4["speckit.implement.md"]
+        CL5["speckit.constitution.md"]
+    end
+
+    T1 --> C1 & CL1
+    T2 --> C2 & CL2
+    T3 --> C3 & CL3
+    T4 --> C4 & CL4
+    T5 --> C5 & CL5
+
+    style Templates fill:#6366f1,color:#fff
+    style Cursor fill:#22c55e,color:#fff
+    style Claude fill:#f59e0b,color:#fff
+```
+
 ### Cursor
 
 Cursor reads commands from `.cursor/commands/`. When you type `/speckit.specify add user authentication`, Cursor loads the `speckit.specify.md` command file and follows its structured workflow — creating branches, generating specs, running validation.
@@ -161,6 +256,23 @@ Cursor reads commands from `.cursor/commands/`. When you type `/speckit.specify 
 ### Claude Code
 
 Claude Code reads commands from `.claude/commands/`. The same spec-kit commands are available as slash commands. Claude Code also reads `CLAUDE.md` at the repo root, which typically references the constitution and quality gates.
+
+A typical `CLAUDE.md` ties everything together:
+
+```yaml
+# CLAUDE.md (repo root)
+
+## Git Workflow
+- Branch naming: `prebuild/<type>/<description>`
+- Conventional Commits + DCO required on every commit
+- DCO: `Signed-off-by: Your Name <your@email.com>`
+- Always create PRs with `gh pr create`
+
+## Quality Gates
+- `make lint`           # Ruff linting (Python)
+- `make test`           # All tests
+- `make caipe-ui-tests` # UI Jest tests
+```
 
 ### Both Get the Same Context
 
@@ -193,6 +305,86 @@ The `/speckit.checklist` command is particularly interesting — it treats your 
 - [ ] CHK003 Are hover state requirements consistent across all
       interactive elements? [Consistency]
 ```
+
+## What Generated Code Looks Like
+
+When `/speckit.implement` runs, it produces code that traces back to the spec. Here's an example of a LangGraph agent generated from a CAIPE spec:
+
+```python
+# ai_platform_engineering/agents/pagerduty/graph.py
+# Generated from: docs/docs/specs/087-pagerduty-agent/spec.md
+
+from langgraph.graph import StateGraph, END
+from langgraph.checkpoint.memory import MemorySaver
+from typing import TypedDict, Annotated
+
+
+class PagerDutyState(TypedDict):
+    """State for the PagerDuty agent graph."""
+    messages: Annotated[list, "Chat messages"]
+    incident_id: str | None
+    incident_data: dict | None
+    action_result: str | None
+
+
+def create_pagerduty_graph() -> StateGraph:
+    """Build the PagerDuty agent execution graph.
+
+    Spec acceptance criteria:
+    - AC-1: Incidents are retrievable by ID
+    - AC-2: Response includes severity, status, assignee
+    - AC-3: Query completes in under 2 seconds
+    """
+    builder = StateGraph(PagerDutyState)
+
+    builder.add_node("parse_request", parse_request)
+    builder.add_node("fetch_incident", fetch_incident)
+    builder.add_node("format_response", format_response)
+
+    builder.set_entry_point("parse_request")
+    builder.add_edge("parse_request", "fetch_incident")
+    builder.add_edge("fetch_incident", "format_response")
+    builder.add_edge("format_response", END)
+
+    return builder.compile(checkpointer=MemorySaver())
+```
+
+And the corresponding test, derived directly from the spec's acceptance criteria:
+
+```python
+# tests/test_pagerduty_agent.py
+import pytest
+from unittest.mock import AsyncMock, patch
+
+
+@pytest.mark.asyncio
+async def test_fetch_incident_by_id():
+    """AC-1: Incidents are retrievable by ID."""
+    graph = create_pagerduty_graph()
+    result = await graph.ainvoke({
+        "messages": [],
+        "incident_id": "P12345",
+    })
+    assert result["incident_data"] is not None
+    assert result["incident_data"]["id"] == "P12345"
+
+
+@pytest.mark.asyncio
+async def test_incident_response_fields():
+    """AC-2: Response includes severity, status, and assignee."""
+    graph = create_pagerduty_graph()
+    result = await graph.ainvoke({
+        "messages": [],
+        "incident_id": "P12345",
+    })
+    data = result["incident_data"]
+    assert "severity" in data
+    assert "status" in data
+    assert "assignee" in data
+```
+
+> Every test function traces back to an acceptance criterion in the spec. If the spec changes, the tests change first — **Red-Green-Refactor** is enforced by the constitution.
+{: .prompt-tip }
 
 ## How This Blog Was Scaffolded
 
@@ -227,6 +419,52 @@ To adopt spec-kit in your own project:
    ```
 
 4. **Copy commands** to both `.claude/commands/` and `.cursor/commands/` so your team can use either tool.
+
+## The Full Picture
+
+Here's how all the pieces fit together — from the `.specify/` institutional memory through to deployed code:
+
+```mermaid
+flowchart TB
+    subgraph Memory [".specify/ — Institutional Memory"]
+        CONST["CONSTITUTION.md"]
+        ARCH["ARCHITECTURE.md"]
+        TEST["TESTING.md"]
+        SKILLS["SKILLS.md"]
+        TMPL["templates/"]
+    end
+
+    subgraph Workflow ["Spec-Driven Workflow"]
+        SPEC["spec.md<br/>What & Why"]
+        PLAN["plan.md<br/>How"]
+        TASKS["tasks.md<br/>Execution Order"]
+        CODE["Source Code<br/>+ Tests"]
+    end
+
+    subgraph Tools ["AI Coding Assistants"]
+        CC["Claude Code"]
+        CU["Cursor"]
+    end
+
+    subgraph CI ["Quality Gates"]
+        LINT["make lint"]
+        UTEST["make test"]
+        UITEST["make caipe-ui-tests"]
+    end
+
+    Memory -->|"Loaded at session start"| Tools
+    Tools -->|"/speckit.specify"| SPEC
+    SPEC -->|"/speckit.plan"| PLAN
+    PLAN -->|"/speckit.tasks"| TASKS
+    TASKS -->|"/speckit.implement"| CODE
+    CODE --> CI
+    CI -->|"Pass"| PR["Pull Request"]
+    CONST -.->|"Constitution check"| PLAN
+
+    style Memory fill:#6366f1,color:#fff
+    style Workflow fill:#059669,color:#fff
+    style CI fill:#dc2626,color:#fff
+```
 
 ## Why This Matters
 
