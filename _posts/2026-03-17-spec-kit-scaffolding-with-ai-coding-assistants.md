@@ -105,7 +105,7 @@ Tasks marked `[P]` can run in parallel. Tasks tagged `[US1]`, `[US2]` map back t
 
 ### Phase 4: Implement
 
-`/speckit.implement` executes tasks phase by phase, following TDD (tests before code), respecting dependencies, and marking tasks complete as it goes.
+`/speckit.implement` executes tasks phase by phase, following the [Red-Green-Refactor](https://martinfowler.com/bliki/TestDrivenDevelopment.html) cycle — write a failing test first (red), implement just enough to pass it (green), then clean up (refactor). It respects task dependencies and marks tasks complete as it goes.
 
 ## The Constitution: Governing Principles for Agents
 
