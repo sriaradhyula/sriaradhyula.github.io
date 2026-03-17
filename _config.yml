@@ -16,7 +16,7 @@ timezone: America/Los_Angeles
 
 title: Sri Aradhyula
 
-tagline: Engineering notes on agentic AI, platform engineering, and SRE
+tagline: AI Engineering, Platform Engineering, Life and Times
 
 description: >- # used by seo meta and the atom feed
   Engineering blog by Sri Aradhyula — agentic AI, platform engineering, SRE,
@@ -41,7 +41,7 @@ social:
   links:
     # The first element serves as the copyright owner's link
     - https://github.com/sriaradhyula
-    - https://www.linkedin.com/in/sriaradhyula
+    - https://www.linkedin.com/in/aradhyula
 
 # Site Verification Settings
 webmaster_verifications:
@@ -97,7 +97,7 @@ theme_mode: # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:
+avatar: "https://avatars.githubusercontent.com/u/18059027?v=4"
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
