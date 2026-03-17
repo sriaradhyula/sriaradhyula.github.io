@@ -22,6 +22,15 @@ package-lock.json
 !.vscode/extensions.json
 !.vscode/tasks.json
 
+# Cursor — track commands, ignore everything else
+.cursor/*
+!.cursor/commands/
+!.cursor/rules/
+
+# Claude Code — track commands, ignore everything else
+.claude/*
+!.claude/commands/
+
 # Misc
 _sass/vendors
 assets/js/dist
