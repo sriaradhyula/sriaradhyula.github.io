@@ -1,6 +1,6 @@
 ---
 title: "Spec-Kit: Scaffolding Projects with AI Coding Assistants"
-date: 2026-03-17 10:00:00 -0700
+date: 2026-03-17 00:00:00 +0000
 categories: [Engineering, AI-Assisted Development]
 tags: [spec-kit, claude-code, cursor, spec-driven-development, agentic-ai]
 description: >-
