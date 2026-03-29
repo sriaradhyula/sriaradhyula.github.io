@@ -4,14 +4,14 @@ date: 2026-03-29 00:00:00 +0000
 categories: [Engineering, Agentic AI]
 tags: [agentic-ai, sdlc, platform-engineering, harness-engineering, spec-driven-development, software-engineering]
 description: >-
-  Agents don't know the intent or the outcome. Humans do. But humans need to enable
-  agents to create disciplined software. A practitioner's postulates on where the
-  SDLC is heading in the agentic era.
+  Agents don't know the intent of what is being created nor can define the quality
+  of the outcome. Humans do. But humans need to enable agents to create disciplined
+  software. A practitioner's postulates on where the SDLC is heading in the agentic era.
 pin: true
 mermaid: true
 ---
 
-*Agents don't know the intent or the outcome. Humans do. But humans need to enable agents to create disciplined software.*
+*Agents don't know the intent of what is being created nor can define the quality of the outcome. Humans do. But humans need to enable agents to create disciplined software.*
 
 ---
 
