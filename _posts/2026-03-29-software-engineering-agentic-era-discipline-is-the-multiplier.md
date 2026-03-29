@@ -247,13 +247,59 @@ The traditional sharp role boundaries — frontend engineer, backend engineer, D
 
 New competencies are emerging that every engineer needs: harness engineering (designing constraints and feedback loops), context engineering (curating the information environment agents operate within), and specification writing (expressing intent with the precision of a requirements document but the iterability of a conversation).
 
+**Team topology is shifting too.** The [Team Topologies](https://teamtopologies.com/) model — stream-aligned teams, platform teams, enabling teams, complicated subsystem teams — remains the right lens, but what each team *does* is changing. Stream-aligned teams are shifting from "write features" to "specify features and review agent-produced implementations." Platform teams are shifting from "build golden paths" to "build harnesses that make agents walk the golden path automatically." Enabling teams are shifting from "coach on practices" to "coach on specification quality and harness design."
+
+The platform team restructuring is the most concrete near-term change. In a pre-agentic world, a platform team maintained the scaffolding, the service templates, the CI pipeline, and coached application teams on how to use them. In an agentic world, that same team designs and maintains the harnesses — the CLAUDE.md constitutions, the architectural constraint linters, the structural test suites — that channel every agent session toward compliant, reliable output. The golden path does not disappear; it gets encoded into the harness so that agents cannot deviate from it even if prompted to.
+
+Concretely, new specializations are emerging:
+
+- **Harness Engineer**: Designs and maintains the constraint systems, linters, and feedback loops that shape agent behavior. The CI/CD engineer of the agentic era.
+- **Specification Author**: Translates business requirements into unambiguous, testable specs that agents can act on. Part product manager, part systems analyst, part technical writer.
+- **Agent Reviewer**: Reviews agent-produced PRs with an eye toward correctness, security, and architectural fit — not line-by-line reading, but pattern recognition and acceptance criteria validation.
+
 The [Shopify experience](https://www.firstround.com/ai/shopify) is instructive. They are scaling their intern program dramatically because interns are AI centaurs: they use tools natively, have a beginner's mindset, and push the entire team forward. Shopify's CTO is on the internal leaderboard for highest Cursor token spend. The message is clear: this is not about replacing engineers. It is about elevating what engineering means.
+
+---
+
+## Postulate 11: Buy vs Build vs Generate — The New Decision Framework
+
+For decades, engineering leaders have operated with a two-option decision framework: **buy** (SaaS or licensed software) or **build** (write it yourself). The agentic era adds a third option that changes the calculus entirely: **generate**.
+
+When the marginal cost of producing custom software approaches zero — when an agent can produce a working, tested integration in hours rather than weeks — many decisions that used to be "buy because building is too expensive" become "generate because it fits our constraints exactly."
+
+The decision logic looks like this:
+
+**Buy** when the vendor provides regulatory compliance, security certification, network effects, or data access you cannot replicate. Payroll processing, identity providers, payment rails: the value is not the code, it is the ecosystem and the liability transfer.
+
+**Build** when the logic is core differentiation. Proprietary algorithms, unique data pipelines, competitive moats: this is the code that makes your product *yours*. Agents can assist, but humans define the intent.
+
+**Generate** when the requirement is real but the code is commodity: internal tooling, CI/CD glue, API adapters, migration scripts, one-off data transforms, compliance report generators, internal dashboards. Historically, these fell into a gray zone — too specific to buy, too expensive to build properly. In the agentic era, they belong in the generate column.
+
+The implication for engineering strategy: **the "build vs buy" conversation needs to add a third column in every make-or-buy analysis.** Teams that are still evaluating every internal tool as a buy/build binary are leaving enormous value on the table. And teams that are generating everything without discrimination are generating technical debt at machine speed.
+
+The skill is knowing which column a requirement belongs in — and that judgment is irreducibly human.
+
+---
+
+## Postulate 12: Anti-Patterns — What Bad Agentic Engineering Looks Like
+
+Every paradigm shift generates its own failure modes. The agentic era is no exception. The organizations that struggle will not struggle because they adopted agents too early. They will struggle because they adopted agents without the discipline to use them well.
+
+**Vibe-architecting.** The most common failure mode: applying the vibe-coding instinct to specifications. "Build me a microservices architecture" is not a spec. It is a suggestion. Agents given vague specifications produce code that is confidently structured and subtly wrong — it compiles, it passes shallow tests, and it fails in production in ways that take weeks to trace. Specification quality is the upstream determinant of agent output quality. Garbage in, garbage out — just faster.
+
+**Context rot.** CLAUDE.md files, AGENTS.md files, and harness documentation drift from reality. An agent operating on a context file that describes last year's architecture will produce last year's patterns, confidently, at machine speed. Context files are not set-and-forget; they are living documentation that requires the same disciplined maintenance as any other engineering artifact. Build entropy management — periodic automated reviews of context files against actual code — into your harness from day one.
+
+**Harness debt.** Every agent mistake that is fixed by hand, rather than fixed in the harness, is harness debt. The debt is invisible until it compounds: the same class of mistake recurs across dozens of PRs, each fixed by a human reviewer, none of the fixes feeding back into the system. The OpenAI Harness Engineering principle is worth restating here: *anytime you find an agent makes a mistake, you take the time to engineer a solution such that the agent never makes that mistake again.* This is not overhead. It is the core engineering investment that makes agents more capable over time.
+
+**The 90% trap.** Agents reach 90% completion quickly. The last 10% — edge cases, cross-system integration points, non-functional requirements, security considerations — requires human judgment. The trap is shipping the 90% as if it were 100%, either because the deadline was real or because the agent expressed no uncertainty. Acceptance criteria must be explicit enough that the gap between "agent thinks it is done" and "it is actually done" is verifiable by a machine, not just a human reader.
+
+**Specification inflation.** The overcorrection to vibe-architecting: specs so exhaustive that they specify the implementation rather than the intent. A 10,000-word spec that describes every function signature is not a specification — it is code written in prose. The signal is when agents start asking clarifying questions about the spec rather than the problem. Good specs describe *what* and *why* with enough constraint on *how* to prevent architectural drift, and no more.
 
 ---
 
 ## Where We Go From Here
 
-**Budget-based development will replace story-point estimation.** When agents generate code, the cost unit shifts from developer-hours to compute-hours plus human-review-hours. Estimation becomes a function of specification complexity and harness quality, not team velocity.
+**Budget-based development will replace story-point estimation.** When agents generate code, the cost unit shifts from developer-hours to compute-hours plus human-review-hours. Estimation becomes a function of specification complexity and harness quality, not team velocity. The practical shape of this: a "spec complexity budget" that estimates how many agent iterations a feature is likely to require based on the clarity and completeness of the spec, the maturity of the relevant harness, and the integration surface area involved. Teams with mature harnesses and high-quality specs will converge in fewer loops at lower compute cost. Teams with immature harnesses or vague specs will burn budget on rework. The budget is the accountability mechanism that makes specification quality a measurable engineering output — not a soft skill.
 
 **Ship loops and deploy feedback loops will be everywhere.** Every agentic development workflow will converge on some version of this pattern: specify, execute, verify, deliver, observe, repeat. The open-source communities working on this, including projects like [CNOE's ai-platform-engineering](https://github.com/cnoe-io/ai-platform-engineering), are already building the shared infrastructure to make these loops the default mode of operation.
 
