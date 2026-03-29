@@ -99,9 +99,35 @@ The evolution is well documented:
 
 1. **Waterfall**: Sequential, predictable, brittle. Worked when requirements were stable and change was expensive.
 2. **Agile**: Iterative, adaptive, human-centric. Worked when the bottleneck was feedback loops between humans.
-3. **Hybrid/DevOps**: Continuous delivery, infrastructure as code, shift-left testing. Worked when the bottleneck was the wall between dev and ops.
+3. **DevOps**: Continuous delivery, infrastructure as code, shift-left testing. Worked when the bottleneck was the wall between dev and ops.
+4. **Platform Engineering**: Golden paths, self-service infrastructure, internal developer platforms. Worked when the bottleneck was cognitive load and toil imposed on application teams by platform complexity.
 
-Each transition shortened the feedback loop. Agentic development does not just shorten the loop. It introduces an **inner loop** where agents iterate autonomously within the guardrails set by humans.
+```mermaid
+flowchart LR
+    W["📋 Waterfall\nPlan-driven\nsequential"]
+    AG["🔄 Agile\nIterative\nhuman-centric"]
+    DV["🚀 DevOps\nContinuous delivery\nshift-left"]
+    PE["🛤️ Platform Eng\nGolden paths\nself-service"]
+    CB["💬 Chatbot &\nCoding Agents\nAI-assisted\nindividual"]
+    AU["🤖 Autonomous\nCoding Agents\nSpec-driven\nteam-scale"]
+    GT["🏭 Gas Town\nParallel multi-agent\nfull autonomy"]
+    AD["⚙️ ADLC\nHarness-guided\nship loops"]
+
+    W --> AG --> DV --> PE --> CB --> AU --> GT --> AD
+
+    style W fill:#495057,color:#fff
+    style AG fill:#1864ab,color:#fff
+    style DV fill:#0c8599,color:#fff
+    style PE fill:#2f9e44,color:#fff
+    style CB fill:#6741d9,color:#fff
+    style AU fill:#3b5bdb,color:#fff
+    style GT fill:#e8590c,color:#fff
+    style AD fill:#1d3557,color:#fff,stroke:#ffd60a,stroke-width:3px
+```
+
+Each transition from left to right shortened the feedback loop between intent and working software. The first four stages kept the human as the primary author of every artifact. The right half flips that assumption. Most teams in 2026 are somewhere between Chatbot/Coding Agents and Autonomous Coding Agents — the ADLC is the disciplined methodology that governs how you operate anywhere in that right half, and Gas Town represents what the far right of the spectrum looks like in practice today.
+
+Agentic development does not just shorten the loop further. It introduces an **inner loop** where agents iterate autonomously within the guardrails set by humans.
 
 I am calling this the **Agentic Development Lifecycle (ADLC)**. Its defining characteristics:
 
