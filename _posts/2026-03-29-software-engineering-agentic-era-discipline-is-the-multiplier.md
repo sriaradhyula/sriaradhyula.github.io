@@ -17,17 +17,17 @@ mermaid: true
 
 ## The Discipline That Prepared Us for This Moment
 
-Back in grad school, Software Engineering was one of my favorite courses. It is still taught as a complete graduate program at my alma mater, and for good reason. It taught me the discipline between coding for fun and a rigorous, process-driven approach to releasing software. Think of a manufacturing plant or an assembly line: inputs are defined, quality is measured at every stage, and the final product ships because the *system* works, not because any single person stayed up all night. A well-oiled software engineering organization runs like clockwork: release managers and program managers deciding what goes into a release and what gets cut, bugs ruthlessly scrubbed daily as release dates approach. I have seen my share of that clockwork, and I have never stopped appreciating it.
+Back in grad school, Software Engineering was one of my favorite courses. It is now taught as a complete graduate program at my [alma mater](https://academics.utdallas.edu/fact-sheets/ecs/ms-software-engineering/), and for good reason. That course and my professional experience taught me the discipline between coding for fun and a rigorous, process-driven approach to releasing complex software. Think of a manufacturing plant or an assembly line: inputs are defined, quality is measured at every stage, and the final product ships because the *system* works like a clockwork. A well-oiled software engineering organization runs like clockwork: release managers and program managers deciding what goes into a release and what gets cut, bugs ruthlessly scrubbed daily as release dates approach and quality gates rigorously automated and vetted. I have seen my share of that clockwork in large production systems, and I have never stopped appreciating it.
 
-Software Engineering, as the name suggests, is the **engineering optimization** of software: process-driven, disciplined, systematic. And here is what excites me most about the agentic era: the principles that make software engineering a discipline — specification, verification, quality gates, feedback loops, supply chain integrity — are not threatened by AI agents writing code. They are **more important than ever**. The question is not whether engineering discipline still matters. The question is how we evolve that discipline to match the extraordinary speed at which agentic tools are reshaping the SDLC.
+Software Engineering, as the name suggests, is the **engineering optimization** of software: process-driven, disciplined, systematic. And here is what excites me most about the agentic era: the principles that make software engineering a discipline — specification, verification, quality gates, feedback loops, supply chain integrity — are not threatened by AI agents writing code. They are **more important than ever**. The question is not whether engineering discipline still matters. The question is how we evolve that discipline to match the extraordinary speed at which agentic coding is reshaping the SDLC.
 
-That is the conversation I want to have in this post. Not vibe coding. Not weekend prototypes. Those tools will provide a solid start for rapid prototyping and MVPs. But for any company where software is the product, where longevity matters, where teams need to collaborate and maintain what they ship: **how do we make agentic software development sustainable, team-based, and enterprise-grade?**
+That is the conversation I want to have in this post. Not vibe coding. Not weekend prototypes. Those tools will provide a solid start for rapid prototyping and quick proof-of-concepts. But for any company where software is the product, where longevity matters, where teams need to collaborate and maintain what they ship: **how do we make agentic software development sustainable, team-based, and enterprise-grade?**
 
-At a recent meetup with software engineering leaders, the energy around this question was palpable. SDLC loops driven by agentic AI will become commonplace, and the smartest leaders in the room were already asking the right follow-up: *What are the strong business cases? How do we organize teams around this? Where does more code actually create more value, and where does discipline create more value?* These are exactly the right questions, and they are engineering questions, not hype questions.
+At a recent meetup with software engineering leaders, the energy around this question was palpable. There is consensus that SDLC loops driven by agentic AI will become commonplace in near future, and the smartest leaders in the room were already asking the right follow-up: *How do we put business problems ahead of coding speed? How do we organize teams around this? Where does more code actually create more value, and where does discipline create more value?* These are exactly the right questions, and they are engineering questions, not hype questions.
 
-Everyone has a vantage point shaped by where they sit. Mine comes from [nearly two decades](https://sriaradhyula.github.io/) across the full stack of software delivery: real-time media and embedded systems engineering, building test automation frameworks and CI/CD pipelines from scratch, full-stack cloud engineering across AWS, Azure, and GCP, leading globally distributed SRE and platform engineering teams, architecting Kubernetes-native and cloud-native security platforms, and now designing AI-native agentic software platforms. I have worn the hats of technical product owner, SRE team lead, platform architect, CTO of a healthcare SaaS startup, and open-source maintainer. I have had the privilege of interacting with business leaders shaping strategy and engineers shipping under pressure.
+Everyone has a vantage point shaped by where they sit. Mine comes from [nearly two decades](https://sriaradhyula.github.io/) across the full stack of software delivery: real-time media and embedded systems engineering, building test automation frameworks and CI/CD pipelines from scratch, full-stack cloud engineering across AWS, Azure, and GCP, leading globally distributed SRE and platform engineering teams, architecting Kubernetes-native and cloud-native security platforms, and now designing AI-native agentic software platforms. I have worn the hats of technical product owner, SRE team lead, platform architect and open-source maintainer. I have had the privilege of interacting with business leaders shaping strategy and engineers shipping under pressure.
 
-What follows are my principles: hard-won, informed by experience, grounded in what I am seeing across the industry, about where Software Engineering, Platform Engineering, and the SDLC are heading. I am leaning in on this shift, not because the technology is impressive (though it is), but because I believe the discipline of software engineering has prepared us for exactly this moment.
+What follows are my principles: informed by experience, grounded in what I am seeing across the industry, about where Software Engineering, Platform Engineering, and the SDLC are heading. I am leaning in on this shift, not because the technology is impressive (though it is), but because I believe the discipline of software engineering has prepared us for exactly this moment.
 
 ---
 
@@ -168,16 +168,6 @@ At the other end: **[Gas Town](https://steve-yegge.medium.com/welcome-to-gas-tow
 - **Human review** of agent-produced PRs before merge
 
 Moving along the spectrum is not inevitable — it is a deliberate engineering and organizational investment:
-
-```mermaid
-flowchart LR
-    A["💬 Chatbot Coding<br/>─────────────────<br/>Individual productivity<br/>Copy-paste loop<br/>Human is primary author"]
-    B["⚙️ ADLC<br/>─────────────────<br/>Team-scale delivery<br/>Spec · Execute<br/>Verify · Deliver"]
-    C["🏭 Gas Town<br/>─────────────────<br/>20-30 parallel agents<br/>Autonomous orchestration<br/>Machine-speed delivery"]
-    A -->|"Invest in: specs + harnesses"| B
-    B -->|"Invest in: parallelism + merge queues"| C
-    style B fill:#1d3557,color:#fff,stroke:#457b9d,stroke-width:2px
-```
 
 | Stage | What You Build | What Unlocks Next |
 |---|---|---|
