@@ -6,7 +6,7 @@ tags: [agentic-ai, sdlc, platform-engineering, harness-engineering, spec-driven-
 description: >-
   Agents don't know the intent of what is being created nor can define the quality
   of the outcome. Humans do. But humans need to enable agents to create disciplined
-  software. A practitioner's postulates on where the SDLC is heading in the agentic era.
+  software. A practitioner's principles on where the SDLC is heading in the agentic era.
 pin: true
 mermaid: true
 ---
@@ -27,11 +27,11 @@ At a recent meetup with software engineering leaders, the energy around this que
 
 Everyone has a vantage point shaped by where they sit. Mine comes from [nearly two decades](https://sriaradhyula.github.io/) across the full stack of software delivery: real-time media and embedded systems engineering, building test automation frameworks and CI/CD pipelines from scratch, full-stack cloud engineering across AWS, Azure, and GCP, leading globally distributed SRE and platform engineering teams, architecting Kubernetes-native and cloud-native security platforms, and now designing AI-native agentic software platforms. I have worn the hats of technical product owner, SRE team lead, platform architect, CTO of a healthcare SaaS startup, and open-source maintainer. I have had the privilege of interacting with business leaders shaping strategy and engineers shipping under pressure.
 
-What follows are my postulates: opinionated, informed by experience, grounded in what I am seeing across the industry, about where Software Engineering, Platform Engineering, and the SDLC are heading. I am leaning in on this shift, not because the technology is impressive (though it is), but because I believe the discipline of software engineering has prepared us for exactly this moment.
+What follows are my principles: hard-won, informed by experience, grounded in what I am seeing across the industry, about where Software Engineering, Platform Engineering, and the SDLC are heading. I am leaning in on this shift, not because the technology is impressive (though it is), but because I believe the discipline of software engineering has prepared us for exactly this moment.
 
 ---
 
-## Postulate 1: This Is a Paradigm Shift, and That Is a Good Thing
+## Principle 1: This Is a Paradigm Shift, and That Is a Good Thing
 
 Every paradigm shift in software gets initially dismissed as incremental. Containers were "just better VMs." Kubernetes was "just another orchestrator." CI/CD was "just scripted deployments."
 
@@ -55,9 +55,9 @@ As [Bloomberg reported](https://www.bloomberg.com/news/articles/2026-02-26/ai-co
 
 ---
 
-## Postulate 2: Agents Don't Know the Intent or the Outcome. Humans Do.
+## Principle 2: Agents Don't Know the Intent or the Outcome. Humans Do.
 
-This is the most important postulate in this entire piece, and it is the one I want every engineering leader to internalize.
+This is the most important principle in this entire piece, and it is the one I want every engineering leader to internalize.
 
 AI agents are extraordinarily capable code generators. But they do not know **why** you are building something. They do not understand the business outcome you are optimizing for. They do not know whether the feature you are asking them to build is the right feature, or whether it will create regulatory exposure, or whether it conflicts with a strategic decision made in last quarter's planning cycle.
 
@@ -73,7 +73,7 @@ The implication for engineering leaders: **your most important investment is not
 
 ---
 
-## Postulate 3: Stop Panicking. Start Thinking About Where Humans Add Value.
+## Principle 3: Stop Panicking. Start Thinking About Where Humans Add Value.
 
 The Bloomberg article on the [productivity panic](https://www.bloomberg.com/news/articles/2026-02-26/ai-coding-agents-like-claude-code-are-fueling-a-productivity-panic-in-tech) captured a real anxiety. But panic is unproductive. The right response is to ask clearly: **where do humans contribute irreplaceable value?**
 
@@ -93,7 +93,7 @@ The [Shopify directive](https://www.cnbc.com/2025/04/07/shopify-ceo-prove-ai-can
 
 ---
 
-## Postulate 4: The SDLC Is Evolving Again, Into the Agentic Development Lifecycle
+## Principle 4: The SDLC Is Evolving Again, Into the Agentic Development Lifecycle
 
 The evolution is well documented:
 
@@ -152,7 +152,7 @@ flowchart TD
 
 ---
 
-## Postulate 5: There Is a Spectrum — From Chatbot Coding to Gas Town. Know Where You Are.
+## Principle 5: There Is a Spectrum — From Chatbot Coding to Gas Town. Know Where You Are.
 
 One of the most useful framings I have encountered is thinking of agentic software development not as a binary state — either you have AI or you don't — but as a **spectrum of maturity**.
 
@@ -193,7 +193,7 @@ This framing also clarifies where to invest. Optimizing for individual developer
 
 ---
 
-## Postulate 6: Quality Trumps Speed
+## Principle 6: Quality Trumps Speed
 
 Nobody wants a crappy, subpar, insecure product. For large enterprises, there is reputation harm in shipping inferior products. Imagine a highly active ecommerce platform processing millions of transactions daily, or a banking institution where a single bug could expose customer financial data, or a critical piece of infrastructure software that millions of users depend on. How can future agentic software be shipped responsibly for systems like these?
 
@@ -207,7 +207,7 @@ Quality gates become the product. When agents can produce code at machine speed,
 
 ---
 
-## Postulate 7: Harness Engineering Is How Humans Guide Agents Without Becoming the Bottleneck
+## Principle 7: Harness Engineering Is How Humans Guide Agents Without Becoming the Bottleneck
 
 The critical question is not "should humans review agent output?" Of course they should. The question is: **how do we design systems where humans guide agents efficiently, so that humans are not roadblocks but are effectively steering agents toward disciplined software?**
 
@@ -221,7 +221,7 @@ For platform engineering teams, this is a direct extension of the golden path co
 
 ---
 
-## Postulate 8: Platform Engineering and Test Automation Play a Pivotal Role in Creating Light Ship Loops
+## Principle 8: Platform Engineering and Test Automation Play a Pivotal Role in Creating Light Ship Loops
 
 Ship loops — the continuous cycle from specification through agent execution, verification, and delivery — are where platform engineering and test automation become the backbone of agentic development.
 
@@ -245,7 +245,7 @@ Steve Yegge's [Gas Town](https://steve-yegge.medium.com/welcome-to-gas-town-4f25
 
 ---
 
-## Postulate 9: Security Is Not Optional. It Is Paramount.
+## Principle 9: Security Is Not Optional. It Is Paramount.
 
 The agentic era introduces attack surfaces that most organizations are not prepared for. To understand why, start with a framing that every enterprise engineer already knows: **blackboxes**.
 
@@ -298,7 +298,7 @@ Security cannot be bolted on after agents are in production. It must be designed
 
 ---
 
-## Postulate 10: Roles Are Normalizing, and New Disciplines Are Emerging
+## Principle 10: Roles Are Normalizing, and New Disciplines Are Emerging
 
 The traditional sharp role boundaries — frontend engineer, backend engineer, DevOps engineer, QA engineer — made sense when the primary constraint was specialized knowledge needed to produce artifacts in each domain. When agents can produce artifacts across domains, the boundaries blur. This is not a threat. It is a **normalization** that unlocks a different kind of specialization.
 
@@ -318,7 +318,7 @@ The [Shopify experience](https://www.firstround.com/ai/shopify) is instructive. 
 
 ---
 
-## Postulate 11: Buy vs Build vs Generate — The New Decision Framework
+## Principle 11: Buy vs Build vs Generate — The New Decision Framework
 
 For decades, engineering leaders have operated with a two-option decision framework: **buy** (SaaS or licensed software) or **build** (write it yourself). The agentic era adds a third option that changes the calculus entirely: **generate**.
 
@@ -338,7 +338,7 @@ The skill is knowing which column a requirement belongs in — and that judgment
 
 ---
 
-## Postulate 12: Anti-Patterns — What Bad Agentic Engineering Looks Like
+## Principle 12: Anti-Patterns — What Bad Agentic Engineering Looks Like
 
 Every paradigm shift generates its own failure modes. The agentic era is no exception. The organizations that struggle will not struggle because they adopted agents too early. They will struggle because they adopted agents without the discipline to use them well.
 
