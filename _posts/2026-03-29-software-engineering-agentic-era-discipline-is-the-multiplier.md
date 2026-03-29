@@ -221,21 +221,52 @@ Steve Yegge's [Gas Town](https://steve-yegge.medium.com/welcome-to-gas-town-4f25
 
 ## Postulate 9: Security Is Not Optional. It Is Paramount.
 
-The agentic era introduces attack surfaces that most organizations are not prepared for.
+The agentic era introduces attack surfaces that most organizations are not prepared for. To understand why, start with a framing that every enterprise engineer already knows: **blackboxes**.
 
-The [OWASP Top 10 for Agentic Applications 2026](https://www.practical-devsecops.com/owasp-top-10-agentic-applications/) identifies the primary risks: Agent Goal Hijack, Tool Misuse, Identity and Privilege Abuse, Memory Poisoning, and Supply Chain Vulnerabilities. These are not theoretical. They are being exploited now.
+### Agents Create Blackboxes. Enterprises Already Know How to Handle Them — Mostly.
 
-[Cisco's State of AI Security 2026](https://blogs.cisco.com/ai/cisco-state-of-ai-security-2026-report) report found that only 29% of organizations reported being prepared to secure their agentic AI deployments. Meanwhile, [IBM's 2026 X-Force Threat Intelligence Index](https://newsroom.ibm.com/2026-02-25-ibm-2026-x-force-threat-index-ai-driven-attacks-are-escalating-as-basic-security-gaps-leave-enterprises-exposed) revealed a nearly 4x increase in large supply chain compromises since 2020, with AI-powered coding tools accelerating this by introducing unvetted code into pipelines.
+When an agent writes a module, a service, or a library, the engineer reviewing the PR may understand what it does at a high level — inputs, outputs, the happy path — but the internal logic is often a blackbox in the same sense that a third-party npm package or a Maven dependency is a blackbox. You did not write it. You did not fully audit it. You are trusting it.
 
-The security implications are layered:
+The blackbox can be small: an agent-generated utility function, a generated component library, an integration adapter. Or it can be large: an entire service, a generated data pipeline, a full subsystem. The scale varies. The trust problem is the same.
 
-**Supply chain attacks now target the agentic ecosystem itself.** [Coding agents widen the supply chain attack surface](https://securityboulevard.com/2026/03/coding-agents-widen-your-supply-chain-attack-surface/) through prompt injection, toolchain poisoning, and hallucinated dependencies that bypass traditional DevSecOps.
+This is not new. Enterprises have been consuming blackboxes for decades. Every Node.js project has thousands of transitive dependencies. Every Java service pulls in hundreds of Maven artifacts. The OSS ecosystem is built on the shared assumption that widely-used, community-reviewed packages are safe enough to depend on. An entire industry — dependency scanning, SBOM generation, license auditing, vulnerability management, software composition analysis — grew up to manage that risk. That industry is mature, well-tooled, and hard-won.
+
+Recent supply chain incidents are a reminder of what the cost of complacency looks like. Log4Shell exposed the fragility of deeply nested transitive dependencies hiding inside trusted frameworks. The XZ Utils backdoor demonstrated that a patient attacker could compromise a widely-trusted open-source project through social engineering over years. Dozens of npm typosquatting and dependency confusion attacks have shown that the attack surface of the package ecosystem is vast and actively exploited. [IBM's X-Force](https://newsroom.ibm.com/2026-02-25-ibm-2026-x-force-threat-index-ai-driven-attacks-are-escalating-as-basic-security-gaps-leave-enterprises-exposed) reported a nearly 4x increase in large supply chain compromises since 2020, with AI-powered coding tools accelerating the trend.
+
+**Agents introduce a new tier of blackbox risk that sits above the OSS layer.** Unlike OSS packages, agent-generated code:
+
+- Has no community review history or CVE database tracking its known vulnerabilities
+- Has no maintainer to issue patches when a flaw is discovered
+- Was produced by a model that may have been influenced by training data containing known-vulnerable patterns
+- May introduce *new* OSS dependencies — including typosquatted packages, outdated packages with CVEs, or license-incompatible libraries — without flagging any of it unless the harness requires it
+
+And unlike a single npm package, an agent session may generate hundreds of modules across a codebase — each one a potential vector.
+
+### Disciplined Platform Engineering Extends Supply Chain Security to Agent-Generated Artifacts
+
+The tooling already exists. The discipline is applying it consistently:
+
+**Agent provenance and SBOM.** Every agent-generated component should carry provenance metadata: which model generated it, with what harness version, against what spec, at what commit. This is agent SBOM, and it is the foundation of auditability. Without it, you cannot answer the question "which of our modules were produced by an agent session that used a compromised context file?" — and that question will eventually be asked.
+
+**Signing and verification.** Apply [Sigstore](https://www.sigstore.dev/) and [SLSA](https://slsa.dev/) provenance attestations to agent-generated artifacts the same way you would to build artifacts. An agent-produced library that cannot be traced to a verified harness run should not reach production.
+
+**Policy enforcement at CI.** OPA, Cedar, or OpenFGA policies that govern what agent-generated code is allowed to do — which APIs it can call, which data it can access, which external dependencies it can introduce — enforced at CI time, not at runtime. [Coding agents widen the supply chain attack surface](https://securityboulevard.com/2026/03/coding-agents-widen-your-supply-chain-attack-surface/) through prompt injection, toolchain poisoning, and hallucinated dependencies; policy gates are the mechanical check that the harness cannot skip.
+
+**Dependency hygiene for agent-introduced packages.** Every dependency an agent introduces as part of its output should pass through the same ingestion process as any other third-party dependency: SCA scan, license check, known-CVE review. Do not let agents bypass the vetting process that applies to every other package in your dependency tree.
+
+**Periodic re-audit.** Unlike human-written code where a PR review is a one-time event, agent-generated code should be subject to periodic re-audit as the threat landscape evolves. A module generated six months ago by an agent unaware of a newly-discovered vulnerability class is a liability. Treat it like an OSS dependency: track it, scan it, patch it.
+
+The parallel to OSS supply chain security is the most useful mental model for engineering leaders. Enterprises learned — through Log4Shell, through XZ Utils, through painful incidents that made the headlines — to treat their dependency trees as part of their security posture. The same discipline, extended to agent-generated artifacts, is what makes agentic software production-safe at enterprise scale.
+
+### The Broader Agentic Attack Surface
+
+Beyond the supply chain, the [OWASP Top 10 for Agentic Applications 2026](https://www.practical-devsecops.com/owasp-top-10-agentic-applications/) identifies additional risks that are being exploited now: Agent Goal Hijack, Tool Misuse, Identity and Privilege Abuse, and Memory Poisoning. [Cisco's State of AI Security 2026](https://blogs.cisco.com/ai/cisco-state-of-ai-security-2026-report) found only 29% of organizations prepared to secure their agentic deployments.
 
 **Agents operate with broader system permissions than humans typically do.** An agent with terminal access and stored credentials is not the same risk profile as a chatbot in a browser tab.
 
-**Threat modeling must become a first-class engineering artifact.** The [MAESTRO framework](https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro) from the Cloud Security Alliance provides a structured, layer-by-layer approach.
+**Threat modeling must become a first-class engineering artifact.** The [MAESTRO framework](https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro) from the Cloud Security Alliance provides a structured, layer-by-layer approach to the full threat surface.
 
-Security-aware software engineering is paramount to enterprise deployments. This means enforcing least-privilege for every agent session, signing and verifying agent-generated artifacts (Sigstore, SLSA), implementing policy engines for agent actions (Cedar, OPA, OpenFGA), treating agent configuration as code, building human-in-the-loop checkpoints for actions with financial or security impact, and monitoring agent behavior for anomalies the same way you monitor production services.
+Security-aware software engineering means enforcing least-privilege for every agent session, treating agent configuration as code, building human-in-the-loop checkpoints for actions with financial or security impact, and monitoring agent behavior for anomalies the same way you monitor production services.
 
 Security cannot be bolted on after agents are in production. It must be designed into the harness from day one.
 
