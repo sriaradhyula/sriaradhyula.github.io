@@ -104,14 +104,14 @@ The evolution is well documented:
 
 ```mermaid
 flowchart LR
-    W["📋 Waterfall\nPlan-driven\nsequential"]
-    AG["🔄 Agile\nIterative\nhuman-centric"]
-    DV["🚀 DevOps\nContinuous delivery\nshift-left"]
-    PE["🛤️ Platform Eng\nGolden paths\nself-service"]
-    CB["💬 Chatbot &\nCoding Agents\nAI-assisted\nindividual"]
-    AU["🤖 Autonomous\nCoding Agents\nSpec-driven\nteam-scale"]
-    GT["🏭 Gas Town\nParallel multi-agent\nfull autonomy"]
-    AD["⚙️ ADLC\nHarness-guided\nship loops"]
+    W["📋 Waterfall<br/>Plan-driven<br/>sequential"]
+    AG["🔄 Agile<br/>Iterative<br/>human-centric"]
+    DV["🚀 DevOps<br/>Continuous delivery<br/>shift-left"]
+    PE["🛤️ Platform Eng<br/>Golden paths<br/>self-service"]
+    CB["💬 Chatbot &<br/>Coding Agents<br/>AI-assisted<br/>individual"]
+    AU["🤖 Autonomous<br/>Coding Agents<br/>Spec-driven<br/>team-scale"]
+    GT["🏭 Gas Town<br/>Parallel multi-agent<br/>full autonomy"]
+    AD["⚙️ ADLC<br/>Harness-guided<br/>ship loops"]
 
     W --> AG --> DV --> PE --> CB --> AU --> GT --> AD
 
@@ -139,11 +139,11 @@ I am calling this the **Agentic Development Lifecycle (ADLC)**. Its defining cha
 
 ```mermaid
 flowchart TD
-    S["📋 Specify\nIntent · constraints\nacceptance criteria"] --> E["🤖 Execute\nAgent produces code,\ntests, docs, IaC"]
-    E --> V["✅ Verify\nLint · unit tests\nsecurity · arch gates"]
+    S["📋 Specify<br/>Intent · constraints<br/>acceptance criteria"] --> E["🤖 Execute<br/>Agent produces code,<br/>tests, docs, IaC"]
+    E --> V["✅ Verify<br/>Lint · unit tests<br/>security · arch gates"]
     V -->|"Fail → harness learns"| E
-    V -->|Pass| D["🚀 Deliver\nCD pipeline +\nobservability"]
-    D --> O["👁 Observe\nProduction signals\nruntime feedback"]
+    V -->|Pass| D["🚀 Deliver<br/>CD pipeline +<br/>observability"]
+    D --> O["👁 Observe<br/>Production signals<br/>runtime feedback"]
     O --> S
     style S fill:#1d3557,color:#fff
     style D fill:#1d3557,color:#fff
@@ -171,11 +171,11 @@ Moving along the spectrum is not inevitable — it is a deliberate engineering a
 
 ```mermaid
 flowchart LR
-    A["💬 Chatbot Coding\n─────────────────\nIndividual productivity\nCopy-paste loop\nHuman is primary author"]
-    B["⚙️ ADLC\n─────────────────\nTeam-scale delivery\nSpec · Execute\nVerify · Deliver"]
-    C["🏭 Gas Town\n─────────────────\n20-30 parallel agents\nAutonomous orchestration\nMachine-speed delivery"]
-    A -->|"Invest in:\nspecs + harnesses"| B
-    B -->|"Invest in:\nparallelism + merge queues"| C
+    A["💬 Chatbot Coding<br/>─────────────────<br/>Individual productivity<br/>Copy-paste loop<br/>Human is primary author"]
+    B["⚙️ ADLC<br/>─────────────────<br/>Team-scale delivery<br/>Spec · Execute<br/>Verify · Deliver"]
+    C["🏭 Gas Town<br/>─────────────────<br/>20-30 parallel agents<br/>Autonomous orchestration<br/>Machine-speed delivery"]
+    A -->|"Invest in: specs + harnesses"| B
+    B -->|"Invest in: parallelism + merge queues"| C
     style B fill:#1d3557,color:#fff,stroke:#457b9d,stroke-width:2px
 ```
 
