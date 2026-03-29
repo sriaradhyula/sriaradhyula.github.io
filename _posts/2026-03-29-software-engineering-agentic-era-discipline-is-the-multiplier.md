@@ -31,38 +31,33 @@ What follows are principles I have derived: informed by experience, grounded in 
 
 ---
 
-## Principle 1: Agentic Coding is a Paradigm Shift, and That Is a Good Thing
+## Principle 1: Agentic Coding Is a Paradigm Shift, Not Just Another Automation
 
-Every paradigm shift in software gets initially dismissed as incremental. Containers were "just better VMs." Kubernetes was "just another orchestrator." CI/CD was "just scripted deployments."
+In every prior software industry shift: Waterfall to Agile, monoliths to microservices, on-premises to cloud, the rise of DevOps, the emergence of Platform Engineering, human engineers were always the principal authors of software artifacts. CI/CD tooling improved, test automation increased, end user feedback cycles accelerated. Yet throughout all of it, humans wrote the code, reviewed the code, and decided what to ship.
 
-Agentic Coding in software development is just not nother automation, it is a **paradigm shift** in what it means to engineer software. And the opportunity it presents is enormous.
+The move from Waterfall to Agile brought iterative cycles and tight feedback loops. This shift happened alongside the explosion of cloud-native and SaaS models, making scalability, resilience, and continuous delivery the new cornerstones. Out of that convergence came the [12 Factor App methodology](https://www.12factor.net/): twelve pragmatic rules for portable, maintainable cloud-era systems. DevOps followed, dissolving the wall between dev and ops. Platform Engineering is the latest iteration of that evolution, giving teams self-service platforms and paved paths so engineers could focus on solving business problems rather than managing infrastructure.
 
-In every prior software industry shift, whether moving from Waterfall to Agile, monoliths to microservices, on-premises to cloud, the rise of DevOps, or the emergence of Platform Engineering, human engineers have always been the principal authors of software artifacts. Tooling improved, automation increased, feedback cycles accelerated, and delivery pipelines became standardized. Yet throughout these changes, it was always human engineers writing the code, reviewing the code, and making the decisions about what to ship.
+Each transition was real. None displaced the human as the author.
 
-The move from Waterfall to Agile brought iterative cycles and tight feedback loops, allowing teams to adapt faster and deliver value sooner. This shift happened alongside the explosion of cloud-native and SaaS models, fundamentally altering how we build and run software. Scalability, resilience, and continuous delivery became the new cornerstones.
+Agentic coding is different. Consider what is already in production:
 
-Out of this convergence came the [12 Factor App methodology](https://www.12factor.net/): twelve pragmatic rules for designing cloud-era software—configuration, disposability, environment parity, and more—that set the standard for portable, maintainable systems ready to thrive in dynamic environments.
+[OpenAI's Harness Engineering team](https://openai.com/index/harness-engineering/) built a production application exceeding one million lines of code with zero manually written lines. Three engineers drove Codex agents through pull requests and CI, averaging 3.5 PRs per engineer per day over five months.
 
-DevOps followed, dissolving the traditional gap between dev and ops. Shared responsibility, close collaboration, and automated pipelines became normal, making CI/CD the engine that speeds code safely into production. Today, Platform Engineering represents the next evolution: providing teams with self-service platforms, reusable infrastructure, and paved, automated paths. This abstraction removes complexity, accelerates delivery, and allows teams to focus their energy where it matters—solving business problems atop a foundation that is consistent, secure, and reliable.
+[Anthropic's parallel Claude experiment](https://www.anthropic.com/engineering/building-c-compiler) produced a 100,000-line Rust compiler, built by 16 parallel Claude instances over roughly 2,000 sessions at approximately $20,000 in API costs, capable of building the Linux kernel on x86, ARM, and RISC-V. The researcher's takeaway wasn't about the compiler. It was about what became *tractable*: how to write tests that keep long-running agents on track, how to structure parallel work, and where the approach hits its ceiling.
 
+[Stripe's Minions](https://www.infoq.com/news/2026/03/stripe-autonomous-coding-agents/) now produce over 1,300 merged PRs per week against code that processes over $1 trillion in annual payment volume. A developer posts a task in Slack; the agent writes the code, passes CI, and opens the PR. No human-written code. All human-reviewed. Stripe's core design pattern alternates between deterministic code nodes and open-ended agent loops. As one analysis [noted](https://www.anup.io/stripes-coding-agents-the-walls-matter-more-than-the-model/), the system runs the model, not the other way around.
 
-In the agentic era, that assumption is being tested. Consider the early experiments that hint at what is coming:
+[GitHub's Squad project](https://github.blog/ai-and-ml/github-copilot/how-squad-runs-coordinated-ai-agents-inside-your-repository/) is exploring specialist agents coordinating inside your repository, drawing on committed team decisions and project history as shared context.
 
-[OpenAI's Harness Engineering team](https://openai.com/index/harness-engineering/) ran an internal experiment where three engineers built a production application with over a million lines of code, with zero manually written code, by driving Codex agents through pull requests and CI workflows. They averaged 3.5 PRs per engineer per day over five months. It is early, and the approach has clear limitations, but their takeaway is worth sitting with: the engineer's primary job shifted from writing code to designing environments, specifying intent, and building feedback loops.
+None of these are solved problems. Every team is still learning, still discovering failure modes. But they share a common thread: the engineer's job shifted from writing code to designing the system that makes agent-written code reliable.
 
-[Anthropic's agent teams experiment](https://www.anthropic.com/engineering/building-c-compiler) explored what happens when you give 16 parallel Claude instances a single goal: build a C compiler from scratch. Over nearly 2,000 sessions and $20,000 in API costs, the agents produced a 100,000-line Rust compiler that can build the Linux kernel on x86, ARM, and RISC-V. The researcher's takeaway was not about the compiler itself. It was about what he learned designing harnesses for long-running autonomous agents: how to write tests that keep agents on track, how to structure parallel work, and where the approach hits its ceiling. These are unsolved problems, but the fact that they are now *tractable* problems is the shift.
+As [Bloomberg reported](https://www.bloomberg.com/news/articles/2026-02-26/ai-coding-agents-like-claude-code-are-fueling-a-productivity-panic-in-tech), AI coding agents have fueled "the great productivity panic of 2026." The most important insight from that coverage: in a world of disposable code, the biggest productivity gain may be the restraint to know what not to build at all.
 
-[Stripe's Minions](https://www.infoq.com/news/2026/03/stripe-autonomous-coding-agents/) offer perhaps the most production-hardened example. Their autonomous coding agents now produce over 1,300 merged pull requests per week, supporting code that processes over $1 trillion in annual payment volume. A developer posts a task in Slack; the agent writes the code, passes CI, and opens a PR. All code is human-reviewed but contains no human-written code. Stripe's core design pattern is what they call "blueprints": orchestration flows that alternate between fixed, deterministic code nodes and open-ended agent loops. As one analysis [noted](https://www.anup.io/stripes-coding-agents-the-walls-matter-more-than-the-model/), the system runs the model, not the other way around.
-
-[GitHub's Squad project](https://github.blog/ai-and-ml/github-copilot/how-squad-runs-coordinated-ai-agents-inside-your-repository/) is exploring repository-native orchestration: specialist agents you "hire" inside your repo that coordinate in parallel, loading shared team decisions and project history from committed files. It is early-stage and evolving, but the direction is clear.
-
-None of these are solved problems. Every team running agents at scale is still learning, still iterating, still discovering failure modes. But they all share a common thread: **the human's value shifted from writing code to designing the system that makes agent-written code reliable.**
-
-As [Bloomberg reported](https://www.bloomberg.com/news/articles/2026-02-26/ai-coding-agents-like-claude-code-are-fueling-a-productivity-panic-in-tech), AI coding agents have fueled what some are calling "the great productivity panic of 2026." But the concluding insight from that coverage deserves emphasis: in this future of disposable code, the biggest productivity hack may be having the restraint to know what not to build at all. That is an engineering insight, not a coding insight.
+**The shift is not that humans are less important. It is that where humans add value has moved, from authoring artifacts to designing the systems that govern them.**
 
 ---
 
-## Principle 2: Agents Don't Know the Intent or the Outcome. Humans Do.
+## Principle 2: Agents Don't Know the Intent of the product nor can qualitatively measure the Outcome. Humans Do.
 
 This is the most important principle in this entire piece, and it is the one I want every engineering leader to internalize.
 
