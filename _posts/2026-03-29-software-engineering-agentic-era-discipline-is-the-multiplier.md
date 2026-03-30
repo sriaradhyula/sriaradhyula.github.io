@@ -27,51 +27,49 @@ At a recent meetup with software engineering leaders, the energy around this que
 
 Everyone has a vantage point shaped by where they sit. Mine spans nearly two decades across the full stack of software delivery — from real-time embedded systems and test automation to cloud infrastructure, SRE, platform engineering, and now agentic AI platforms. I have built things, led teams, and sat in rooms with both business leaders shaping strategy and engineers shipping under pressure.
 
-What follows are principles I have derived: informed by experience, grounded in what I am seeing across the industry, about where Software Engineering, Platform Engineering, and the SDLC are heading. I am leaning in on this shift, not just because the technology is impressive (though it is), but because I believe the discipline of software engineering has prepared us for exactly this moment.
+What follows are principles I have derived as informed by experience, grounded in what I am seeing across the industry, about where Software Engineering, Platform Engineering, and the SDLC are heading. I am leaning in on this shift, not just because the technology is impressive (though it is), but because I believe the discipline of software engineering has prepared us for exactly this moment.
 
 ---
 
 ## Principle 1: Agentic Coding Is a Paradigm Shift, Not Just Another Automation
 
+
 In every prior software industry shift: Waterfall to Agile, monoliths to microservices, on-premises to cloud, the rise of DevOps, the emergence of Platform Engineering, human engineers were always the principal authors of software artifacts. CI/CD tooling improved, test automation increased, end user feedback cycles accelerated. Yet throughout all of it, humans wrote the code, reviewed the code, and decided what to ship.
 
 The move from Waterfall to Agile brought iterative cycles and tight feedback loops. This shift happened alongside the explosion of cloud-native and SaaS models, making scalability, resilience, and continuous delivery the new cornerstones. Out of that convergence came the [12 Factor App methodology](https://www.12factor.net/): twelve pragmatic rules for portable, maintainable cloud-era systems. DevOps followed, dissolving the wall between dev and ops. Platform Engineering is the latest iteration of that evolution, giving teams self-service platforms and paved paths so engineers could focus on solving business problems rather than managing infrastructure.
 
-Each transition was real. None displaced the human as the author.
+Each transition was real. None displaced the human as the author of the code. In the agentic era, that assumption is being tested. Consider the early experiments that hint at what is coming:
 
-Agentic coding is different. Consider what is already in production:
+[OpenAI's Harness Engineering team](https://openai.com/index/harness-engineering/) ran an internal experiment where three engineers built a internal beta application with over a million lines of code, with zero manually written code, by driving Codex agents through pull requests and CI workflows. They averaged 3.5 PRs per engineer per day over five months. It is early, and the approach has clear limitations, but their takeaway is worth sitting with: the engineer's primary job shifted from writing code to designing environments, specifying intent, and building feedback loops.
 
-[OpenAI's Harness Engineering team](https://openai.com/index/harness-engineering/) built a production application exceeding one million lines of code with zero manually written lines. Three engineers drove Codex agents through pull requests and CI, averaging 3.5 PRs per engineer per day over five months.
+[Anthropic's agent teams experiment](https://www.anthropic.com/engineering/building-c-compiler) explored what happens when you give 16 parallel Claude instances a single goal: build a C compiler from scratch. Over nearly 2,000 sessions and $20,000 in API costs, the agents produced a 100,000-line Rust compiler that can build the Linux kernel on x86, ARM, and RISC-V. The researcher's takeaway was not about the compiler itself. It was about what he learned designing harnesses for long-running autonomous agents: how to write tests that keep agents on track, how to structure parallel work, and where the approach hits its ceiling. These are unsolved problems, but the fact that they are now *tractable* problems is the shift.
 
-[Anthropic's parallel Claude experiment](https://www.anthropic.com/engineering/building-c-compiler) produced a 100,000-line Rust compiler, built by 16 parallel Claude instances over roughly 2,000 sessions at approximately $20,000 in API costs, capable of building the Linux kernel on x86, ARM, and RISC-V. The researcher's takeaway wasn't about the compiler. It was about what became *tractable*: how to write tests that keep long-running agents on track, how to structure parallel work, and where the approach hits its ceiling.
+[Stripe's Minions](https://www.infoq.com/news/2026/03/stripe-autonomous-coding-agents/) coding agents now produce over 1,300 merged pull requests per week, supporting code that processes over $1 trillion in annual payment volume. A developer posts a task in Slack; the agent writes the code, passes CI, and opens a PR. All code is human-reviewed but contains no human-written code. Stripe's core design pattern is what they call "blueprints": orchestration flows that alternate between fixed, deterministic code nodes and open-ended agent loops.
 
-[Stripe's Minions](https://www.infoq.com/news/2026/03/stripe-autonomous-coding-agents/) now produce over 1,300 merged PRs per week against code that processes over $1 trillion in annual payment volume. A developer posts a task in Slack; the agent writes the code, passes CI, and opens the PR. No human-written code. All human-reviewed. Stripe's core design pattern alternates between deterministic code nodes and open-ended agent loops. As one analysis [noted](https://www.anup.io/stripes-coding-agents-the-walls-matter-more-than-the-model/), the system runs the model, not the other way around.
 
-[GitHub's Squad project](https://github.blog/ai-and-ml/github-copilot/how-squad-runs-coordinated-ai-agents-inside-your-repository/) is exploring specialist agents coordinating inside your repository, drawing on committed team decisions and project history as shared context.
+[GitHub's Squad project](https://github.blog/ai-and-ml/github-copilot/how-squad-runs-coordinated-ai-agents-inside-your-repository/) is exploring repository-native orchestration: specialist agents work inside your repo that coordinate in parallel, loading shared team decisions and project history from committed files. It is early-stage and evolving, but the direction is clearly moving towards agentic coding loop.
 
-None of these are solved problems. Every team is still learning, still discovering failure modes. But they share a common thread: the engineer's job shifted from writing code to designing the system that makes agent-written code reliable.
+_None of these are solved problems. Every team is still learning and discovering new failure modes. But they share a common thread: the engineer's job has shifted from writing code to designing the systems that make agent-written code reliable, validated, and conformant to organizations', teams', and industry standards._
 
 As [Bloomberg reported](https://www.bloomberg.com/news/articles/2026-02-26/ai-coding-agents-like-claude-code-are-fueling-a-productivity-panic-in-tech), AI coding agents have fueled "the great productivity panic of 2026." The most important insight from that coverage: in a world of disposable code, the biggest productivity gain may be the restraint to know what not to build at all.
 
-**The shift is not that humans are less important. It is that where humans add value has moved, from authoring artifacts to designing the systems that govern them.**
 
----
+> **Key Takeaway: The shift is not that humans are less important. It is that where humans add value has moved, from authoring artifacts to designing the systems that govern them.**
 
-## Principle 2: Agents Don't Know the Intent of the product nor can qualitatively measure the Outcome. Humans Do.
+## Principle 2: Humans Own Product Intent. Humans Own Quality Outcomes. Agents Own Implementation.
 
 This is the most important principle in this entire piece, and it is the one I want every engineering leader to internalize.
 
-AI agents are extraordinarily capable code generators. But they do not know **why** you are building something. They do not understand the business outcome you are optimizing for. They do not know whether the feature you are asking them to build is the right feature, or whether it will create regulatory exposure, or whether it conflicts with a strategic decision made in last quarter's planning cycle.
+AI agents are extraordinarily capable code generators. But they do not know **why** you are building something. They do not understand the business outcome you are optimizing for. They do not know whether the feature you are asking them to build is the right feature, or whether it will create regulatory exposure, or whether it conflicts with a strategic decision of your product.
 
-**Humans own intent. Humans own outcomes. Agents own implementation.**
+**Humans own product intent. Humans own quality outcomes. Agents own implementation.**
 
 This framing is liberating, not limiting. It means the engineering discipline shifts upstream, to the work that has always been the hardest and most valuable part of software engineering: understanding the problem deeply, defining what success looks like, specifying constraints clearly enough that machines can operate within them, and verifying that the output meets the standard.
 
-[Spec-Driven Development (SDD)](https://agentfactory.panaversity.org/docs/General-Agents-Foundations/spec-driven-development) is the emerging methodology that codifies this. Rather than treating AI coding agents as sophisticated autocomplete tools, SDD establishes specifications as the primary artifact of software development, with code becoming a generated output derived from human-authored specifications. [GitHub's spec-kit](https://github.com/github/spec-kit) (72,000+ stars) provides the tooling: a four-phase workflow of specify, plan, tasks, and implement that supports over 22 AI agent platforms. I wrote about how we adopted spec-kit in practice — the `.specify/` directory, constitution files, and slash commands — in [Spec-Kit: Scaffolding Projects with AI Coding Assistants](https://sriaradhyula.github.io/posts/spec-kit-scaffolding-with-ai-coding-assistants/). In the open-source communities I contribute to, including [CNOE's ai-platform-engineering](https://github.com/cnoe-io/ai-platform-engineering), we have adopted spec-driven patterns as the default way to coordinate agent work across platform engineering tasks.
+[Spec-Driven Development (SDD)](https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html) is the emerging methodology that brings order to the agentic era. Instead of using AI coding agents merely as autocomplete on steroids, SDD elevates the specification itself to the primary, human-authored artifact; code is then generated from these specifications as a byproduct. Tools like [GitHub's spec-kit](https://github.com/github/spec-kit)operationalize this idea, offering a structured, four-phase workflow: specify, plan, tasks, and implement—while providing integration across 22+ agent platforms. In practice, we have adopted spec-kit workflows in our projects using the `.specify/` directory, constitution files, and slash commands; see my detailed write-up: [Spec-Kit: Scaffolding Projects with AI Coding Assistants](https://sriaradhyula.github.io/posts/spec-kit-scaffolding-with-ai-coding-assistants/). Across open-source communities I collaborate with, such as [CNOE's ai-platform-engineering](https://github.com/cnoe-io/ai-platform-engineering), spec-driven patterns are now the default for orchestrating agent work in platform engineering and beyond.
 
-[StrongDM's Attractor](https://factory.strongdm.ai/products/attractor) takes this further. It is a non-interactive coding agent designed for use in a [Software Factory](https://factory.strongdm.ai/). Instead of publishing a product, they published an [NLSpec (Natural Language Spec)](https://github.com/strongdm/attractor) for how to build your own. Attractor pipelines are directed graphs defined in Graphviz DOT syntax, where nodes are tasks, edges are transitions, and the execution engine traverses them deterministically until convergence or termination conditions are met. As [Ethan Mollick observed](https://www.oneusefulthing.org/p/the-shape-of-the-thing), the particular details of StrongDM's Software Factory matter less than the fact that such radical experimentation into how we work is now not only possible, but likely necessary.
 
-The implication for engineering leaders: **your most important investment is not in better agents. It is in better specifications, better acceptance criteria, better architectural decision records, and better feedback loops.**
+> **Key takeaway:** Your most important investment will be in better specifications, better acceptance criteria, better architectural decision records, and better feedback loops.
 
 ---
 
@@ -401,3 +399,9 @@ How we practice software engineering will keep changing — and in the agentic e
 - [Coding Agents Widen Your Supply Chain Attack Surface](https://securityboulevard.com/2026/03/coding-agents-widen-your-supply-chain-attack-surface/) (Security Boulevard, 2026)
 - [Gas Town: What Kubernetes for AI Coding Agents Actually Looks Like](https://cloudnativenow.com/features/gas-town-what-kubernetes-for-ai-coding-agents-actually-looks-like/) (Cloud Native Now, 2026)
 - [CNOE AI Platform Engineering](https://github.com/cnoe-io/ai-platform-engineering)
+
+---
+
+### Additional reading
+
+[StrongDM's Attractor](https://factory.strongdm.ai/products/attractor) takes this further. It is a non-interactive coding agent designed for use in a [Software Factory](https://factory.strongdm.ai/). Instead of publishing a product, they published an [NLSpec (Natural Language Spec)](https://github.com/strongdm/attractor) for how to build your own. Attractor pipelines are directed graphs defined in Graphviz DOT syntax, where nodes are tasks, edges are transitions, and the execution engine traverses them deterministically until convergence or termination conditions are met. As [Ethan Mollick observed](https://www.oneusefulthing.org/p/the-shape-of-the-thing), the particular details of StrongDM's Software Factory matter less than the fact that such radical experimentation into how we work is now not only possible, but likely necessary.
