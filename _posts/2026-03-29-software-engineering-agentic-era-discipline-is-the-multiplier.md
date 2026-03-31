@@ -1,29 +1,29 @@
 ---
-title: "Discipline Is the Multiplier: Software Engineering Principles for the Age of Autonomous Coding Agents"
+title: "Engineers Write the Rules. Agents Run the Ship Loop. Software Engineering Principles for the Agentic Era SDLC"
 date: 2026-03-29 00:00:00 +0000
 categories: [Engineering, Agentic AI]
 tags: [agentic-ai, sdlc, platform-engineering, harness-engineering, spec-driven-development, software-engineering]
 description: >-
-  Agents don't know the intent of what is being created nor can define the quality
-  of the outcome. Humans do. But humans need to enable agents to create disciplined
-  software. A practitioner's principles on where the SDLC is heading in the agentic era.
+  Engineers write the specs, design the harness, and own the ship loop.
+  Agents handle the execution. A practitioner's principles on where the SDLC
+  is heading in the agentic era.
 pin: true
 mermaid: true
 ---
 
-<img src="/assets/img/shiploop.png" alt="Discipline Is the Multiplier — Agentic Era Software Engineering" width="400" />
+<img src="/assets/img/shiploop.png" alt="Engineers Write the Rules. Agents Run the Ship Loop. Software Engineering Principles for the Agentic Era SDLC" width="450" />
 
 ## The Discipline That Prepared Us for This Moment
 
-Back in grad school, Software Engineering was one of my favorite courses. It is now taught as a complete graduate program at my [alma mater](https://academics.utdallas.edu/fact-sheets/ecs/ms-software-engineering/), and for good reason. That course and my professional experience taught me the discipline between coding for fun and a rigorous, process-driven approach to releasing complex software. Think of a manufacturing plant or an assembly line: inputs are defined, quality is measured at every stage, and the final product ships because the *system* works like a clockwork. A well-oiled software engineering organization runs like clockwork: release managers and program managers deciding what goes into a release and what gets cut, bugs ruthlessly scrubbed daily as release dates approach and quality gates rigorously automated and vetted. I have seen my share of that clockwork in large production systems, and I have never stopped appreciating it.
+Back in grad school, Software Engineering was one of my favorite courses. It is now taught as a complete graduate program at my [alma mater](https://academics.utdallas.edu/fact-sheets/ecs/ms-software-engineering/), and for good reason. That course and my professional experience taught me the difference between coding for fun and a rigorous, process-driven approach to releasing complex software. Think of a manufacturing plant or an assembly line: inputs are defined, quality is measured at every stage, and the final product ships because the *system* works like a clockwork. A well-oiled software engineering organization runs like clockwork: release managers and program managers deciding what goes into a release and what gets cut, bugs ruthlessly scrubbed daily as release dates approach and quality gates rigorously automated and vetted. I have seen my share of that clockwork in large production systems, and I have never stopped appreciating it.
 
-Software Engineering, as the name suggests, is the **engineering optimization** of software: process-driven, disciplined, systematic. And here is what excites me most about the agentic era: the principles that make software engineering a discipline (specification, verification, quality gates, feedback loops, supply chain integrity) are not threatened by AI agents writing code. They are **more important than ever**. The question is how we evolve that discipline to match the extraordinary speed at which agentic coding is reshaping the SDLC.
+Software Engineering, as the name suggests, is the **engineering optimization** of software: process-driven, disciplined, systematic. And here is what excites me most about the agentic era: the principles that make software engineering a discipline (requirements, specification (acceptance criteria), verification (testing), quality gates, feedback loops, security and supply chain integrity) are not threatened by AI agents writing code. They are **more important than ever**. The question is how we evolve that discipline to match the extraordinary speed at which agentic coding is reshaping the SDLC.
 
 That is the conversation I want to have in this post. Not vibe coding. Not weekend prototypes. Those tools will provide a solid start for rapid prototyping and quick proof-of-concepts. But for any company where software is the product, where longevity matters, where teams need to collaborate and maintain what they ship: **how do we make agentic software development secure, sustainable, team-based, and enterprise-grade?**
 
-At a recent meetup with software engineering leaders, the energy around this question was palpable. There is consensus that SDLC loops driven by agentic AI will become commonplace in near future, and the smartest leaders in the room were already asking the right follow-up: *How do we put business problems ahead of coding speed? How do we organize teams around this? Where does more code actually create more value, and where does discipline create more value?* These are exactly the right questions, and they are engineering questions, not hype questions.
+At a recent meetup with software engineering leaders, the energy around this question was palpable. There is consensus that SDLC loops driven by agentic AI will become commonplace in the near future, and the smartest leaders in the room were already asking the right follow-up: *How do we put business problems ahead of coding speed? How do we organize teams around this? Where does more code actually create more value, and where does discipline create more value?* These are exactly the right questions, and they are engineering questions, not hype questions.
 
-Everyone has a vantage point shaped by where they sit. Mine spans nearly two decades across the full stack of software delivery: from real-time embedded systems and test automation to cloud infrastructure, SRE, platform engineering, and now agentic AI platforms. I have built things, led teams, and sat in rooms with both business leaders shaping strategy and engineers shipping under pressure.
+Everyone has a vantage point shaped by where they sit. Mine spans nearly two decades across the full stack of software delivery: from real-time embedded systems and test automation frameworks to large scale cloud infrastructure, SRE, platform engineering, and now agentic AI platforms. I have built things, led teams, and sat in rooms with both business leaders shaping strategy and engineers shipping under pressure.
 
 What follows are principles I have derived as informed by experience, grounded in what I am seeing across the industry, about where Software Engineering, Platform Engineering, and the SDLC are heading. I am leaning in on this shift, not just because the technology is impressive (though it is), but because I believe the discipline of software engineering has prepared us for exactly this moment.
 
@@ -31,14 +31,13 @@ What follows are principles I have derived as informed by experience, grounded i
 
 ---
 
-## Principle 1: In the Agentic Coding Era, Engineering Value Lies in Governing Systems, Not Authoring Code
+## In the Agentic Coding Era, Engineering Value Lies in Governing Systems, Not Authoring Code
 
+In every prior software industry shift: Waterfall to Agile, monoliths to microservices, on-premises to cloud, the rise of DevOps, the emergence of Platform Engineering, human engineers were always the principal authors of software artifacts. Over time CI/CD tooling improved, test automation increased, end user feedback cycles accelerated, yet throughout all of it, humans wrote the code, reviewed the code, and decided what to ship to the end users.
 
-In every prior software industry shift: Waterfall to Agile, monoliths to microservices, on-premises to cloud, the rise of DevOps, the emergence of Platform Engineering, human engineers were always the principal authors of software artifacts. CI/CD tooling improved, test automation increased, end user feedback cycles accelerated. Yet throughout all of it, humans wrote the code, reviewed the code, and decided what to ship.
+The move from Waterfall to Agile brought iterative cycles and tight feedback loops. This shift happened alongside the explosion of cloud-native and SaaS (Software-as-a-Service) delivery models, making scalability, resilience, and continuous delivery the new cornerstones. Out of that convergence came the [12 Factor App methodology](https://www.12factor.net/): twelve pragmatic rules for portable, maintainable cloud-first systems. DevOps followed, dissolving the wall between dev and ops. Platform Engineering is the next iteration of that evolution, giving teams self-service platforms and paved paths so engineers could focus on solving business problems rather than managing infrastructure. Each transition was real. None displaced the human as the author of the code. 
 
-The move from Waterfall to Agile brought iterative cycles and tight feedback loops. This shift happened alongside the explosion of cloud-native and SaaS models, making scalability, resilience, and continuous delivery the new cornerstones. Out of that convergence came the [12 Factor App methodology](https://www.12factor.net/): twelve pragmatic rules for portable, maintainable cloud-era systems. DevOps followed, dissolving the wall between dev and ops. Platform Engineering is the latest iteration of that evolution, giving teams self-service platforms and paved paths so engineers could focus on solving business problems rather than managing infrastructure.
-
-Each transition was real. None displaced the human as the author of the code. In the agentic era, that assumption is being tested. Consider the early experiments that hint at what is coming:
+In the agentic era, that assumption is being tested. Consider the early experiments that hint at what is coming:
 
 [OpenAI's Harness Engineering team](https://openai.com/index/harness-engineering/) ran an internal experiment where three engineers built a internal beta application with over a million lines of code, with zero manually written code, by driving Codex agents through pull requests and CI workflows. They averaged 3.5 PRs per engineer per day over five months. It is early, and the approach has clear limitations, but their takeaway is worth sitting with: the engineer's primary job shifted from writing code to designing environments, specifying intent, and building feedback loops.
 
@@ -47,58 +46,55 @@ Each transition was real. None displaced the human as the author of the code. In
 [Stripe's Minions](https://www.infoq.com/news/2026/03/stripe-autonomous-coding-agents/) coding agents now produce over 1,300 merged pull requests per week, supporting code that processes over $1 trillion in annual payment volume. A developer posts a task in Slack; the agent writes the code, passes CI, and opens a PR. All code is human-reviewed but contains no human-written code. Stripe's core design pattern is what they call "blueprints": orchestration flows that alternate between fixed, deterministic code nodes and open-ended agent loops.
 
 
-[Cloudflare's Vinext project](https://blog.cloudflare.com/how-we-rebuilt-next-js-with-ai-in-one-week/) rebuilt a Next.js-compatible runtime in one week using agent-driven development, shipping with over 1,700 tests and 380 end-to-end tests at a total API cost of approximately $1,100. The quality was not the result of exceptional code review. It was the result of a test harness the agents could not escape.
+[Cloudflare's Vinext project](https://blog.cloudflare.com/how-we-rebuilt-next-js-with-ai-in-one-week/) rebuilt a Next.js-compatible runtime in one week using agent-driven development, at a total API cost of approximately $1,100, with quality enforced entirely by a test harness rather than code review.
 
-[GitHub's Squad project](https://github.blog/ai-and-ml/github-copilot/how-squad-runs-coordinated-ai-agents-inside-your-repository/) is exploring repository-native orchestration: specialist agents work inside your repo that coordinate in parallel, loading shared team decisions and project history from committed files. It is early-stage and evolving, but the direction is clearly moving towards agentic coding loop.
+[GitHub's Squad project](https://github.blog/ai-and-ml/github-copilot/how-squad-runs-coordinated-ai-agents-inside-your-repository/) is exploring repository-native orchestration: specialist agents work inside your repo that coordinate in parallel, loading shared team decisions and project history from committed files. It is early-stage and evolving, but the direction is clearly moving toward an agentic coding loop.
+
+Across each of these experiments, a pattern emerges that goes beyond code volume or speed. The engineers who produced the most impact were not the ones who wrote the most code; they were the ones who designed the environments, constraints, and feedback loops that code could not escape. At OpenAI, the shift was explicit: the engineer's job became designing the harness, not filling it. At Stripe, the blueprint defines the deterministic structure that agents operate within. At Cloudflare, the test suite was the system. The code was the output, not the product. That is what governing a system looks like. And that is where engineering value is migrating.
 
 _Each of these experiments are still evolving, and none of them are production-proven at full enterprise scale. Every organization is still figuring out where the boundaries are: how much autonomy is safe, how to maintain quality at agentic AI speed, how to keep humans meaningfully in the loop without making them the bottleneck. But they share a common thread: the engineer’s role has shifted from writing code to designing the systems that ensure agent-written code is reliable, validated, and conforms to organizational and industry standards._
 
-> **Key takeaway:** Software engineering has always been more than producing code as an artifact. Engineers are no longer the primary authors of code — they are the architects of the constraints, specifications, and feedback loops that shape what agents produce. In many cases, they will not review the code at all; the constraints and validation tests are the guardrails and gatekeepers.
+> **Key takeaway:** Software engineering has always been more than producing code as an artifact. Engineers are no longer the primary authors of code; they are the architects of the constraints, specifications, and feedback loops that shape what agents produce. In many cases, they may not review the code at all; the constraints and validation tests are the guardrails and gatekeepers.
 
----
+## Humans Own Product Intent. Humans Own Quality Outcomes. Agents create the implementation within defined boundaries.
 
-*— Intent, Constraints, and Outcomes —*
-
-## Principle 2: Humans Own Product Intent. Humans Own Quality Outcomes. Agents Own Implementation within defined boundaries.
-
-This is the most important principle in this entire piece, and it is the one I want every engineering leader to internalize.
-
-AI agents are extraordinarily capable code generators. But they do not know **why** you are building something. They do not understand the business outcome you are optimizing for. They do not know whether the feature you are asking them to build is the right feature, or whether it will create regulatory exposure, or whether it conflicts with a strategic decision of your product.
+AI agents are extraordinarily capable code generators. But they do not know **why** you are building something. They do not understand the business outcome you are optimizing for. They do not know whether the feature you are asking them to build is the right feature, or whether it will create business value, or whether it enhances or conflicts with a strategic decision of your product.
 
 > **Humans own product intent. Humans own quality outcomes. Agents will do the doing within defined boundaries.**
 
-This framing is liberating, not limiting. It means the engineering discipline shifts upstream, to the work that has always been the hardest and most valuable part of software engineering: understanding the problem deeply, defining what success looks like, specifying constraints clearly enough that machines can operate within them, and verifying that the output meets the standard.
+This framing is liberating, not limiting. It means the engineering discipline shifts further upstream, to the work that has always been the hardest and most valuable part of software engineering: understanding the problem deeply, defining what success looks like, specifying constraints clearly enough that agents can operate within them, and verifying that the output meets the standard and business outcomes.
 
-[Spec-Driven Development (SDD)](https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html) is the emerging methodology that brings order to the agentic era. Instead of using AI coding agents merely as autocomplete on steroids, SDD elevates the specification itself to the primary, human-authored artifact; code is then generated from these specifications as a byproduct. Tools like [GitHub's spec-kit](https://github.com/github/spec-kit) operationalize this idea, offering a structured, four-phase workflow: specify, plan, tasks, and implement, with integration across 22+ agent platforms. 
+[Spec-Driven Development (SDD)](https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html) is the emerging methodology that brings order to the agentic era. Instead of using AI coding agents merely in chatbot or copilot mode, SDD elevates the specification itself to the primary, human-reviewed artifact; tasks are created from that specification; code is then generated from these specifications as a byproduct. Tools like [GitHub's spec-kit](https://github.com/github/spec-kit) operationalize this idea, offering a structured, four-phase workflow: specify, plan, tasks, and implement, with integration across many coding agent platforms. 
 
-> In practice, I have adopted spec-kit workflows in my projects where I see tremendous value to shifting the mindset to defining and refind the spec first then implemmentation later; see my detailed write-up: [Spec-Kit: Scaffolding Projects with AI Coding Assistants](https://sriaradhyula.github.io/posts/spec-kit-scaffolding-with-ai-coding-assistants/) and in projects such as [CAIPE Community AI Platform Engineering](https://github.com/cnoe-io/ai-platform-engineering), where spec-driven patterns are now the default for orchestrating agent coding.
+> In practice, I have adopted spec-kit workflows in my projects where I see tremendous value in shifting the mindset from using chatbot to code right way to _defining and refining the spec first_ then implementation later; see my detailed write-up: [Spec-Kit: Scaffolding Projects with AI Coding Assistants](https://sriaradhyula.github.io/posts/spec-kit-scaffolding-with-ai-coding-assistants/) and in projects such as [CAIPE Community AI Platform Engineering](https://github.com/cnoe-io/ai-platform-engineering), where spec-driven patterns are now the default for orchestrating agent coding.
 
+The spec-kit workflow makes this concrete. When the specification is the primary artifact, reviewed, refined, and owned by humans before a single line of code is generated, the locus of engineering judgment moves upstream where it belongs. When the spec is wrong, no amount of fast code generation fixes it. When the spec is right, the implementation becomes almost secondary. That is the discipline shift this section is about: from managing code to managing intent. Your most important investment is not in a faster model or a better IDE. It is in better specifications, better acceptance criteria, and better architectural decision records.
 
-> **Key takeaway:** Your most important investment will be in better specifications, better acceptance criteria, better architectural decision records, and better feedback loops.
+This does not come naturally. After years of coding, myself included, the instinct is to open an editor and start coding. Writing a specification first feels like friction, like slowing down before you have even started. But without it, agentic coding becomes a stream of consciousness exercise: the agent generates, you react, you redirect, you generate again, and what emerges is shaped more by the languague model's opinion than your intent. The spec is how you shape the blackbox before it generates. 
 
 ---
 
-## Principle 3: Humans Define the Guardrails. Agents Do the Work.
+## Humans Define the Guardrails. Agents Do the Work.
 
 Agents will do exactly what their guardrails allow. An agent session without encoded standards is a session operating without your organization's hard-won judgment about what good looks like. The most valuable thing you can encode is not syntax rules. It is organizational intelligence.
 
-**Tests and acceptance criteria.** When code is generated at machine speed, your test suite is your immune system. Unit tests, integration tests, property-based tests, mutation testing, static analysis, security scanning: these are not overhead. They are the quality signal that closes the loop. Every failed test is a feedback signal that makes the next agent run better. Acceptance criteria must be explicit enough that the gap between "agent thinks it is done" and "it is actually done" is verifiable by a machine.
+**Tests and acceptance criteria.** When code is generated at agentic speed, your test suite is your immune system. Unit tests, integration tests, end-to-end tests, static analysis, security scanning: these are not overhead. They are the quality signal that closes the loop. Every failed test is a feedback signal that makes the next agent run better. Acceptance criteria must be explicit enough that the gap between "agent thinks it is done" and "it is actually done" is verifiable by a machine. In greenfield projects, tests may be scarce or nonexistent at the start, but that is not a blocker: the acceptance criteria itself can instruct the agent to build the test suite as part of the implementation. Initially, this process will be rough. Over many agentic loops, the system reaches a steady state, and the agentic loop starts to look like a well-oiled machine.
 
-**Architectural constraints.** Agents need to know what they cannot do as much as what they can. Encode your architectural decision records as linter rules, structural tests, and harness constraints. If your organization has decided against a particular framework, data access pattern, or dependency, make that constraint mechanical, not conversational.
+**Architectural constraints.** Agents need to know what they cannot do as much as what they can. Encode your architectural decision records as linter rules, structural tests, and harness constraints. If your organization has decided against a particular framework, data access pattern, or dependency, make that constraint documemented in ARCHITECTURE.md.
 
-**Organizational standards encoded as skills.** Agent platforms like Claude Code support custom skills and AGENTS.md files that encode reusable procedures. Package your organization's coding standards, preferred patterns, deployment processes, and review checklists as agent-callable skills. An agent that knows your org's standards before it starts is not just more productive; it is conformant to organizational and industry standards from the first line it generates.
+**Organizational standards encoded as skills.** Agent platforms like Claude Code support custom skills that encode reusable playbooks. Package your organization's coding standards, preferred patterns, deployment processes, and review checklists as agent skills. An agent that knows your org's standards before it starts is not just more productive; it is conformant to organizational and industry standards from the first line it generates.
 
 **Non-functional requirements and trade-offs.** Database migrations, schema changes, backward compatibility, data integrity, latency budgets, cost modeling: these are the decisions that keep production systems alive. Agents do not have the judgment to make these trade-offs. Encode your NFR expectations into acceptance criteria and harness constraints, and humans define the boundaries.
 
-**Security posture and threat modeling.** The agentic era demands that threat modeling be applied to the development process itself, not just the software being built. Your build pipeline, your agent configuration, and your MCP server connections are all part of your threat surface. Tools like Cisco's [mcp-scanner](https://github.com/cisco-ai-defense/mcp-scanner) and [skill-scanner](https://github.com/cisco-ai-defense/skill-scanner) help audit your agent tooling surface for vulnerabilities before they become attack vectors.
+**Security posture and threat modeling.** The agentic era demands that threat modeling be applied to the development process itself, not just the software being built. Your build pipeline, your agent configuration, and your MCP server connections are all part of your threat surface. Tools like Cisco's [mcp-scanner](https://github.com/cisco-ai-defense/mcp-scanner) and [skill-scanner](https://github.com/cisco-ai-defense/skill-scanner) help audit your agent tooling surface for vulnerabilities before they become attack vectors. Supply chain security for agent-generated artifacts is covered in depth below.
 
 > **Key takeaway:** An agent operating without encoded standards is an agent operating without your organization's judgment. Encode everything that matters: standards, patterns, constraints, security rules. The guardrails you fail to encode are the mistakes your agents will make at scale.
 
 ---
 
-## Principle 4: The SDLC Is Evolving Again, Into the Agentic Development Lifecycle
+## The SDLC Is Evolving Again, Into the Agentic SDLC Ship loop
 
-The evolution is well documented:
+The SDLC evolution is well documented:
 
 1. **Waterfall**: Sequential, predictable, brittle. Worked when requirements were stable and change was expensive.
 2. **Agile**: Iterative, adaptive, human-centric. Worked when the bottleneck was feedback loops between humans.
@@ -112,33 +108,23 @@ flowchart LR
     DV["🚀 DevOps<br/>Continuous delivery<br/>shift-left"]
     PE["🛤️ Platform Eng<br/>Golden paths<br/>self-service"]
     CB["💬 Chatbot &<br/>Coding Agents<br/>AI-assisted<br/>individual"]
-    AU["🤖 Autonomous<br/>Coding Agents<br/>Spec-driven<br/>team-scale"]
-    GT["🏭 Gas Town<br/>Parallel multi-agent<br/>full autonomy"]
-    AD["⚙️ ADLC<br/>Harness-guided<br/>ship loops"]
+    GT["🏭 Autonomous Agents<br/>Parallel multi-agent<br/>spec-driven, full autonomy"]
+    AD["⚙️ Agentic SDLC<br/>Harness-guided<br/>ship loops"]
 
-    W --> AG --> DV --> PE --> CB --> AU --> GT --> AD
+    W --> AG --> DV --> PE --> CB --> GT --> AD
 
     style W fill:#495057,color:#fff
     style AG fill:#1864ab,color:#fff
     style DV fill:#0c8599,color:#fff
     style PE fill:#2f9e44,color:#fff
     style CB fill:#6741d9,color:#fff
-    style AU fill:#3b5bdb,color:#fff
     style GT fill:#e8590c,color:#fff
     style AD fill:#1d3557,color:#fff,stroke:#ffd60a,stroke-width:3px
 ```
 
-Each transition from left to right shortened the feedback loop between intent and working software. The first four stages kept the human as the primary author of every artifact. The right half flips that assumption. Most teams in 2026 are somewhere between Chatbot/Coding Agents and Autonomous Coding Agents; the ADLC is the disciplined methodology that governs how you operate anywhere in that right half, and Gas Town represents what the far right of the spectrum looks like in practice today.
+Each transition from left to right shortened the feedback loop between intent and working software. The first four stages kept the human as the primary author of every artifact. The right half flips that assumption. The diagram also shows the spectrum: at one end, chatbot-based agentic coding, useful for individual productivity but not a paradigm shift, the human is still the bottleneck. At the other end, full autonomy: parallel multi-agent orchestration, code at agentic AI speed, around the clock. Steve Yegge's [Gas Town](https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04) is the most detailed public reference for what this looks like in practice.
 
-Agentic development does not just shorten the loop further. It introduces an **inner loop** where agents iterate autonomously within the guardrails set by humans.
-
-I am calling this the **Agentic Development Lifecycle (ADLC)**. Its defining characteristics:
-
-**[Spec-Driven Development](https://github.com/github/spec-kit) replaces task-driven development.** The primary artifact shifts from code to specifications. The insight is that specs are not a return to Waterfall, because when the cost of regenerating code from an updated spec drops to nearly zero, the economics change completely. You can iterate on specifications at the speed of thought rather than the speed of typing.
-
-**The human becomes the architect, not the bricklayer.** The word "Engineering" means making trade-offs and design choices. In the ADLC, the engineer's output is intent, constraints, and verification: not implementation. As one practitioner [put it](https://embracingenigmas.substack.com/p/exploring-gas-town): "The limiting factor is how quickly you can feed ideas and specifications into the system."
-
-**Ship loops become the heartbeat.** Taking a leaf from MLOps and LLM fine-tuning: think of software as a continuous loop that needs to be trained and validated until the desired outcomes are achieved or the maximum allowable budget is reached. Each iteration through the specify-execute-verify-deliver cycle refines the output. The agent is not a one-shot generator; it is a participant in a convergence loop.
+**The Agentic SDLC Ship Loop** is where software development is heading. Teams immediately do not need to abandon single-session productivity tools to get there; those will continue to be useful for exploratory work and quick iterations. **Over time most structured software development will happen inside ship loops, where specs drive agents, harnesses enforce quality, and the loop runs to PR or all the way to a deployment for human feedback.** You do not need to reach full autonomy to capture enormous value. Full autonomy is the horizon. Make only the investment that unlocks the next stage.
 
 ```mermaid
 flowchart TD
@@ -153,90 +139,33 @@ flowchart TD
     style O fill:#2d6a4f,color:#fff
 ```
 
-> **Key takeaway:** Map your current delivery process against the ADLC loop. Identify the weakest link (specification clarity, verification coverage, or feedback latency) and invest there first.
+> **Key takeaway:** You do not need to flip a switch. Start with one structured workflow running inside a ship loop, with a spec, a harness, and a feedback cycle. That is the investment that compounds.
+
+## Harness Engineering Is the Discipline That Makes Quality and Speed Coexist
+
+Nobody wants inferior, insecure software delivered at agentic AI speed. When agents generate code faster than humans can review it, quality cannot live in the review queue. It has to live in the harness.
+
+[OpenAI's Harness Engineering](https://openai.com/index/harness-engineering/) formalized the discipline: "anytime you find an agent makes a mistake, you take the time to engineer a solution such that the agent never makes that mistake again." Every mistake becomes a constraint. Every constraint makes the next agent run better. [Birgitta Böckeler's analysis at Thoughtworks](https://martinfowler.com/articles/exploring-gen-ai/harness-engineering.html) identifies three categories: context engineering (curated knowledge bases), architectural constraints (enforced by linters and structural tests), and entropy management (agents that periodically clean cruft and fix documentation drift).
+
+[Anthropic's C compiler experiment](https://www.anthropic.com/engineering/building-c-compiler) is the clearest illustration of why test quality is everything. The researcher's observation: "it's important that the task verifier is nearly perfect, otherwise Claude will solve the wrong problem." Improving the harness meant finding high-quality compiler test suites, writing verifiers and build scripts, and watching for failure modes. When agents started breaking existing functionality with each new feature, the fix was not a better prompt; it was a CI pipeline with stricter enforcement so new commits could not break existing code. The harness shaped the behavior. [Stripe's Minions](https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents-part-2) apply the same thesis at a larger scale: sandboxed VMs, a three-tier feedback loop capped at two retries, "putting LLMs into contained boxes compounds into system-wide reliability." [Cloudflare's Vinext](https://blog.cloudflare.com/how-we-rebuilt-next-js-with-ai-in-one-week/) used existing Next.js and OpenNext conformance test suites as the harness rather than writing from scratch, and built a viable drop-in replacement for Next.js.
+
+> **Key takeaway:** Every agent mistake fixed by hand should be encoded into the harness. A good harness makes agents more capable, not just more controlled. The model matters. But a weak harness will waste a strong model. The harness is the variable most teams underinvest in.
 
 ---
 
-## Principle 5: There Is a Spectrum, From Chatbot Coding to Gas Town. Know Where You Are.
+## Security Is Not Optional. It Is Paramount.
 
-One of the most useful framings I have encountered is thinking of agentic software development not as a binary state (either you have AI or you don't) but as a **spectrum of maturity**.
+The agentic era introduces attack surfaces that most organizations are not prepared for. To understand why, start with a framing that every enterprise engineer already knows: **blackbox software**.
 
-At one end: **chatbot-based agentic coding**. A developer opens a coding agent, asks for changes, agent modifies the code, human user tests the code and continues the loop. Useful for individual productivity. Genuinely helpful. But not a paradigm shift; the human is still the bottleneck, and the feedback loop still runs through the developer's fingers.
+> Agents create blackbox code. Enterprises already know how to handle blackbox software, mostly.
 
-At the other end: **[Gas Town](https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04)**. A multi-agent orchestrator coordinating 20 to 30 autonomous Claude Code instances in parallel, with a merge queue that batches requests, runs verification gates, and merges to main using a bisecting queue. Code at machine speed, around the clock.
-
-**The Agentic Development Lifecycle occupies the critical middle of that spectrum,** the zone where teams have moved beyond single-session productivity tools but have not yet built the infrastructure for fully autonomous multi-agent orchestration. It is characterized by:
-
-- **Human-authored specifications** as the primary engineering artifact
-- **Agent sessions** executing against those specs, within defined harnesses
-- **CI-gated verification** closing the loop on every agent run
-- **Human review** of agent-produced PRs before merge
-
-Moving along the spectrum is not inevitable; it is a deliberate engineering and organizational investment:
-
-| Stage | What You Build | What Unlocks Next |
-|---|---|---|
-| Chatbot Coding | Better prompts, context hygiene | Structured specs and harnesses |
-| **ADLC** | **Specs, harnesses, CI gates, human review** | **Parallel agent infrastructure** |
-| Gas Town Like | Merge queues, worktree orchestration, autonomous verification | Fully autonomous ship loops |
-
-The important insight: **you do not need to reach Gas Town to capture enormous value.** The ADLC (specify, execute, verify, deliver) is already a step change in team-scale productivity. Gas Town is the horizon. The ADLC is the immediate opportunity for most organizations in 2026.
-
-This framing also clarifies where to invest. Optimizing for individual developer productivity (chatbot end)? Invest in better prompts and context. Optimizing for team-scale agentic delivery (ADLC)? Invest in specifications, harnesses, and CI gates. Building toward autonomous multi-agent orchestration (Gas Town end)? Invest in parallelism infrastructure, merge queues, and human-in-the-loop escalation paths.
-
-> **Key takeaway:** Place your team honestly on the spectrum. The gap between where most teams think they are and where they actually are is the biggest risk. Make only the investment that unlocks the next stage, and be honest about the gap between where you are and where the marketing says you are.
-
----
-
-*— Specification, Constraints, and Quality at Scale —*
-
-## Principle 6: Harness Engineering Is the Discipline That Makes Quality and Speed Coexist
-
-Nobody wants inferior, insecure software delivered at machine speed. When agents generate code faster than humans can review it, quality cannot live in the review queue. It has to live in the harness.
-
-[Cloudflare's Vinext project](https://blog.cloudflare.com/how-we-rebuilt-next-js-with-ai-in-one-week/) is perhaps the most striking recent demonstration. Built with agent-driven development, the project shipped with over 1,700 tests and 380 end-to-end tests at a total API cost of approximately $1,100. The quality was not the result of exceptional code review. It was the result of a test suite the agents could not escape.
-
-[Stripe's Minions architecture](https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents-part-2) reinforces the same principle at production scale. Every Minion runs in a sandboxed VM with no production access. A three-tier feedback loop: local linters in under 5 seconds, selective CI running only relevant tests, and a pragmatic cap of two retry attempts before flagging a human. The design thesis: "putting LLMs into contained boxes compounds into system-wide reliability."
-
-[Anthropic's C compiler experiment](https://www.anthropic.com/engineering/building-c-compiler) demonstrated the same dynamic. Tests were the harness. When tests were clear and incremental, agents converged. When tests were vague, agents drifted.
-
-The discipline is [Harness Engineering](https://openai.com/index/harness-engineering/), formalized by OpenAI's experiments: "anytime you find an agent makes a mistake, you take the time to engineer a solution such that the agent never makes that mistake again." [Martin Fowler's analysis at Thoughtworks](https://martinfowler.com/articles/exploring-gen-ai/harness-engineering.html) identifies three categories: context engineering (curated knowledge bases), architectural constraints (enforced by linters and structural tests), and entropy management (agents that periodically clean cruft and fix documentation drift).
-
-The key insight: a good harness makes agents **more capable**, not just more controlled. [LangChain's coding agent improved from 52.8% to 66.5% on Terminal Bench 2.0](https://www.ignorance.ai/p/the-emerging-harness-engineering), jumping from Top 30 to Top 5, by changing nothing about the model. Same model. Different harness. Dramatically better results.
-
-For platform engineering teams, this is a direct extension of the golden path concept. Today's service templates and scaffolding become tomorrow's harnesses, with custom linters, structural tests, context documentation, and feedback loops baked in. The platform team's job shifts from "build the CI pipeline" to "build the system that makes agents produce reliable software at scale."
-
-> **Key takeaway:** Every agent mistake fixed by hand should be encoded into the harness. A good harness makes agents more capable, not just more controlled. The model is not the variable: the harness is.
-
----
-
-## Principle 7: Platform Engineering Owns the Ship Loop
-
-Ship loops, the continuous cycle from specification through agent execution, verification, and delivery, are where platform engineering becomes the backbone of agentic development.
-
-In the agentic era, **custom software is cheap.** Historically, enterprise CI/CD pipelines have always been custom. Each organization layers its own compliance gates, internal registry integrations, deployment approval workflows, and cost-control hooks on top of whatever OSS toolchain it uses. That customization has been expensive; it required dedicated platform engineers to write and maintain the glue. When agents can generate that glue at negligible marginal cost, the calculus changes: ship loops can be deeply customized to an enterprise's unique constraints, compliance requirements, and tooling ecosystem using a mix of open-source, proprietary, and purpose-built components. The platform team's job is no longer primarily "pick a supported tool and wrangle it." It is **designing and specifying the ship loop itself**, then letting agents build and maintain the connective tissue.
-
-Steve Yegge's [Gas Town](https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04) project illustrates the frontier: a multi-agent orchestrator coordinating 20 to 30 Claude Code instances in parallel, with a merge queue that batches requests, runs verification gates, and merges to main using a bisecting queue. The [Kubernetes analogy is apt](https://cloudnativenow.com/features/gas-town-what-kubernetes-for-ai-coding-agents-actually-looks-like/): both systems coordinate unreliable workers toward persistent goals, separating control logic from ephemeral execution.
-
-[Bassim Eledath's "8 Levels of Agentic Engineering"](https://www.bassimeledath.com/blog/levels-of-agentic-engineering) framework captures the progression teams are experiencing, from tab-complete autocomplete through context engineering, compounding engineering, MCP and skills integration, harness engineering, background agents, and ultimately autonomous agent teams. Most teams are between levels 3 and 5. The jump to levels 6 through 8 is a phase transition that requires rethinking team structure, not just tooling. The [12 Factor Agents](https://github.com/humanlayer/12-factor-agents) methodology codifies the engineering principles that make this scaling work: own your prompts, own your context window, own your control flow.
-
-> **Key takeaway:** Redesign your platform team's charter around one question: does our ship loop, from spec to production, require human intervention to move forward? Every manual step is a bottleneck to eliminate.
-
----
-
-## Principle 8: Security Is Not Optional. It Is Paramount.
-
-The agentic era introduces attack surfaces that most organizations are not prepared for. To understand why, start with a framing that every enterprise engineer already knows: **blackboxes**.
-
-### Agents Create Blackboxes. Enterprises Already Know How to Handle Them, Mostly.
-
-When an agent writes a module, a service, or a library, the engineer reviewing the PR may understand what it does at a high level (inputs, outputs, the happy path) but the internal logic is often a blackbox in the same sense that a third-party npm package or a Maven dependency is a blackbox. You did not write it. You did not fully audit it. You are trusting it.
+When an agent writes a module, a service, or a library, the engineer reviewing the PR may understand what it does at a high level (inputs, outputs, the happy path) but the internal logic is often a blackbox in the same sense that a third-party npm package or a python dependency is a blackbox. You did not write it. You did not fully audit it. You are trusting it.
 
 The blackbox can be small: an agent-generated utility function, a generated component library, an integration adapter. Or it can be large: an entire service, a generated data pipeline, a full subsystem. The scale varies. The trust problem is the same.
 
-This is not new. Enterprises have been consuming blackboxes for decades. Every Node.js project has thousands of transitive dependencies. Every Java service pulls in hundreds of Maven artifacts. The OSS ecosystem is built on the shared assumption that widely-used, community-reviewed packages are safe enough to depend on. An entire industry (dependency scanning, SBOM generation, license auditing, vulnerability management, software composition analysis) grew up to manage that risk. That industry is mature, well-tooled, and hard-won.
+This is not new. Enterprises have been consuming blackboxes for decades. Every Node.js project has thousands of transitive dependencies. Every Java service pulls in hundreds of Maven artifacts. The OSS ecosystem is built on the shared assumption that widely-used, community-reviewed packages are safe enough to depend on. An entire industry (dependency scanning, SBOM generation, license auditing, vulnerability management, software composition analysis) grew up to manage that risk. That industry is mature and well-tooled. Leverage and automate this.
 
-Recent supply chain incidents are a reminder of what the cost of complacency looks like. Log4Shell exposed the fragility of deeply nested transitive dependencies hiding inside trusted frameworks. The XZ Utils backdoor demonstrated that a patient attacker could compromise a widely-trusted open-source project through social engineering over years. Dozens of npm typosquatting and dependency confusion attacks have shown that the attack surface of the package ecosystem is vast and actively exploited. [IBM's X-Force](https://newsroom.ibm.com/2026-02-25-ibm-2026-x-force-threat-index-ai-driven-attacks-are-escalating-as-basic-security-gaps-leave-enterprises-exposed) reported a nearly 4x increase in large supply chain compromises since 2020, with AI-powered coding tools accelerating the trend.
+Recent supply chain incidents are a reminder of what the cost of complacency looks like. Log4Shell exposed the fragility of deeply nested transitive dependencies hiding inside trusted frameworks. The XZ Utils backdoor demonstrated that a patient attacker could compromise a widely-trusted open-source project through social engineering over years. In March 2026, [LiteLLM CVE (v1.82.7/1.82.8)](https://docs.litellm.ai/blog/security-update-march-2026) via a suspected Trivy CI/CD tooling breach, injecting a credential stealer that harvested environment variables, SSH keys, cloud provider credentials, and Kubernetes tokens. Critically, teams that did not install LiteLLM directly were still at risk: any AI agent framework or MCP server that pulled it in as an unpinned transitive dependency was a vector. [Cisco Talos' 2025 Year in Review](https://blog.talosintelligence.com/2025yearinreview) found that approximately 25% of the year's top-100 targeted vulnerabilities hit widely-used frameworks and libraries embedded deep in the software stack, where a single CVE creates mass exploitation potential across industries.
 
 **Agents introduce a new tier of blackbox risk that sits above the OSS layer.** Unlike OSS packages, agent-generated code:
 
@@ -249,7 +178,7 @@ And unlike a single npm package, an agent session may generate hundreds of modul
 
 ### Disciplined Platform Engineering Extends Supply Chain Security to Agent-Generated Artifacts
 
-The tooling already exists. The discipline is applying it consistently:
+Security scanning tooling in most enterprises already exists. The discipline is applying it consistently:
 
 **Agent provenance and SBOM.** Every agent-generated component should carry provenance metadata: which model generated it, with what harness version, against what spec, at what commit. This is agent SBOM, and it is the foundation of auditability. Without it, you cannot answer the question "which of our modules were produced by an agent session that used a compromised context file?" and that question will eventually be asked.
 
@@ -263,7 +192,7 @@ The tooling already exists. The discipline is applying it consistently:
 
 The parallel to OSS supply chain security is the most useful mental model for engineering leaders. Enterprises learned, through Log4Shell, through XZ Utils, through painful incidents that made the headlines, to treat their dependency trees as part of their security posture. The same discipline, extended to agent-generated artifacts, is what makes agentic software production-safe at enterprise scale.
 
-### The Broader Agentic Attack Surface
+> The Broader Agentic Attack Surface
 
 Beyond the supply chain, the [OWASP Top 10 for Agentic Applications 2026](https://www.practical-devsecops.com/owasp-top-10-agentic-applications/) identifies additional risks that are being exploited now: Agent Goal Hijack, Tool Misuse, Identity and Privilege Abuse, and Memory Poisoning. [Cisco's State of AI Security 2026](https://blogs.cisco.com/ai/cisco-state-of-ai-security-2026-report) found only 29% of organizations prepared to secure their agentic deployments.
 
@@ -279,25 +208,27 @@ Security cannot be bolted on after agents are in production. It must be designed
 
 ---
 
-## Principle 9: Roles Are Normalizing, and New Disciplines Are Emerging
+## Roles and Teams Are Evolving Around the Ship Loop
+
+For engineers who have spent careers being valued for their ability to write code, this shift asks something genuinely difficult: to find identity and value in work that is less visible but highly valuable. The highest-leverage contribution is no longer the code; it is the specification, the constraint system, validation and the review. That is a real adjustment everyone engineer has to internalize.
 
 The traditional sharp role boundaries (frontend engineer, backend engineer, DevOps engineer, QA engineer) made sense when the primary constraint was specialized knowledge needed to produce artifacts in each domain. When agents can produce artifacts across domains, the boundaries blur. This is not a threat. It is a **normalization** that unlocks a different kind of specialization.
 
 New competencies are emerging that every engineer needs: harness engineering (designing constraints and feedback loops), context engineering (curating the information environment agents operate within), and specification writing (expressing intent with the precision of a requirements document but the iterability of a conversation).
 
-**Team topology is shifting too.** The [Team Topologies](https://teamtopologies.com/) model (stream-aligned teams, platform teams, enabling teams, complicated subsystem teams) remains the right lens, but what each team *does* is changing. Stream-aligned teams are shifting from "write features" to "specify features and review agent-produced implementations." Platform teams are shifting from "build golden paths" to "build harnesses that make agents walk the golden path automatically." Enabling teams are shifting from "coach on practices" to "coach on specification quality and harness design."
-
-The platform team restructuring is the most concrete near-term change. In a pre-agentic world, a platform team maintained the scaffolding, the service templates, the CI pipeline, and coached application teams on how to use them. In an agentic world, that same team designs and maintains the harnesses (the CLAUDE.md constitutions, the architectural constraint linters, the structural test suites) that channel every agent session toward compliant, reliable output. The golden path does not disappear; it gets encoded into the harness so that agents cannot deviate from it even if prompted to.
-
 Concretely, new specializations are emerging:
 
 - **Harness Engineer**: Designs and maintains the constraint systems, linters, and feedback loops that shape agent behavior. The CI/CD engineer of the agentic era.
 - **Specification Author**: Translates business requirements into unambiguous, testable specs that agents can act on. Part product manager, part systems analyst, part technical writer.
-- **Agent Reviewer**: Reviews agent-produced PRs with an eye toward correctness, security, and architectural fit: not line-by-line reading, but pattern recognition and acceptance criteria validation.
+- **Agent Reviewer**: Reviews agent-produced artifacts and outcomes with an eye toward correctness, security, and architectural fit: not line-by-line reading, but pattern recognition and acceptance criteria validation.
 
-The [Shopify experience](https://www.firstround.com/ai/shopify) is instructive. They are scaling their intern program dramatically because interns are AI centaurs: they use tools natively, have a beginner's mindset, and push the entire team forward. Shopify's CTO is on the internal leaderboard for highest Cursor token spend. The message is clear: this is not about replacing engineers. It is about elevating what engineering means.
+The platform team restructuring is the most concrete near-term organizational change. In a pre-agentic world, a platform team maintained the scaffolding, the service templates, the CI pipeline, and coached application teams on how to use them. In an agentic world, that same team owns a broader and more consequential surface.
 
-> **Key takeaway:** The engineer who thrives in the agentic era is not the fastest coder; it is the clearest thinker: the one who can specify intent precisely, design constraints that hold, and verify that the output meets the standard. Role boundaries built around artifact production are dissolving. What is emerging is specialization around system design: harness engineers, specification authors, agent reviewers. These are not new job titles; they are the natural evolution of engineering craft. The most valuable engineers will be the ones who make agents more capable through better harnesses, clearer specs, and tighter feedback loops. That is a different skill than writing code, and it needs to be developed deliberately.
+**Spec templates** define what a complete, agent-ready specification looks like for your organization: feature context, acceptance criteria, architectural constraints, non-functional requirements, and test strategy, all encoded in a reusable format that teams fill in rather than invent from scratch. **Organizational skills** package your coding standards, deployment procedures, security checklists, and review protocols as Claude Code skills or platform-equivalent playbooks, so every agent session starts conformant before it writes a line. **Harnesses** (the CLAUDE.md constitutions, architectural constraint linters, structural test suites) enforce those standards mechanically at CI. **Platform systems** wire it all together at the infrastructure level: open-source projects like [CAIPE (Community AI Platform Engineering)](https://cnoe-io.github.io/ai-platform-engineering/) provide agent orchestration, routing, observability, and enterprise toolchain integration as a shared foundation teams can adopt and extend.
+
+The golden path does not disappear; it gets encoded into the harness and skills so that agents cannot deviate from it even if prompted to.
+
+> **Key takeaway:** The engineer who thrives in the agentic era is not the fastest coder; it is the clearest thinker: the one who can specify intent precisely, design constraints that hold, and verify that the output meets the standard. The platform team that enables this at scale is no longer just maintaining pipelines; it is owning the spec templates, organizational skills, harnesses, and platform systems that every agent session depends on. Role boundaries built around artifact production are dissolving and re-forming around system design: harness engineers, specification authors, agent reviewers. These are not new job titles; they are the natural evolution of engineering craft.
 
 ---
 
@@ -315,15 +246,15 @@ The [Shopify experience](https://www.firstround.com/ai/shopify) is instructive. 
 
 ## A Final Thought
 
-I started my career developing real-time media algorithms for Cisco Telepresence, where every millisecond of audio/video latency was budgeted and every RTP packet mattered. I built test automation frameworks before "shift-left" was a phrase anyone used. I architected cloud infrastructure across AWS, Azure, and GCP, led SRE teams across four countries, and built a HIPAA-compliant healthcare platform as a startup CTO. Through all of it, the constant was the same: the systems that shipped reliably were the ones where the engineering discipline was strongest, not where the code was cleverest.
+Across nearly two decades in software delivery, from real-time embedded systems to cloud infrastructure to agentic AI platforms, the constant has been the same: the systems that shipped reliably were the ones where the engineering discipline was strongest, not where the code was cleverest.
 
-This shift is different. Not because the technology is more impressive, though it is. But because it challenges the fundamental identity of what it means to be a software engineer. For two decades, our value was inextricably linked to our ability to write code. In the agentic era, our value shifts to our ability to **think clearly about systems**, to **specify intent precisely**, to **design constraints that channel power toward purpose**, and to **verify that the output meets the standard**.
+This shift is different. Not because the technology is more impressive, though it is. But because it challenges something more fundamental: what it means to be a software engineer. Our value was inextricably linked to the ability to write code. In the agentic era, that value migrates upstream: to thinking clearly about systems, specifying intent precisely, designing constraints that channel capability toward purpose, and verifying that the output meets the standard.
 
 That is not a diminishment of the craft. It is an elevation of it.
 
 The vibe coders will build prototypes. The software engineers will build products. The difference, as it has always been, is discipline.
 
-How we practice software engineering will keep changing, and in the agentic era, that change is happening fast. Tools, workflows, and even what we optimize for day to day will look different year to year. What should not change is the underlying discipline: clear intent, measured quality, honest verification, and the stubborn rigor that turns experiments into something you can ship and sustain. The assembly line gets new machines; the requirement for a working system does not.
+The tools will keep changing, and in the agentic era, that change is happening fast. What should not change is the underlying standard: clear intent, measured quality, honest verification, and the stubborn rigor that turns experiments into something you can ship and sustain. The assembly line gets new machines; the requirement for a working system does not.
 
 ---
 
@@ -340,7 +271,6 @@ How we practice software engineering will keep changing, and in the agentic era,
 - [The Shape of the Thing](https://www.oneusefulthing.org/p/the-shape-of-the-thing) (Ethan Mollick, 2026)
 - [AI Coding Agents Are Fueling a Productivity Panic in Tech](https://www.bloomberg.com/news/articles/2026-02-26/ai-coding-agents-like-claude-code-are-fueling-a-productivity-panic-in-tech) (Bloomberg, 2026)
 - [The 8 Levels of Agentic Engineering](https://www.bassimeledath.com/blog/levels-of-agentic-engineering) (Bassim Eledath, 2026)
-- [Welcome to Gas Town](https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04) (Steve Yegge, 2026)
 - [12 Factor Agents](https://github.com/humanlayer/12-factor-agents) (HumanLayer/Dex Horthy)
 - [StrongDM Attractor NLSpec](https://github.com/strongdm/attractor) and [Software Factory](https://factory.strongdm.ai/)
 - [Spec-Driven Development with Claude Code](https://agentfactory.panaversity.org/docs/General-Agents-Foundations/spec-driven-development) (Agent Factory, 2026)
@@ -351,10 +281,11 @@ How we practice software engineering will keep changing, and in the agentic era,
 - [From Memo to Movement: Shopify's Cultural Adoption of AI](https://www.firstround.com/ai/shopify) (First Round Review, 2026)
 - [OWASP Top 10 for Agentic Applications 2026](https://www.practical-devsecops.com/owasp-top-10-agentic-applications/)
 - [State of AI Security 2026](https://blogs.cisco.com/ai/cisco-state-of-ai-security-2026-report) (Cisco)
+- [Cisco Talos 2025 Year in Review](https://blog.talosintelligence.com/2025yearinreview) (Cisco Talos, 2026)
 - [IBM X-Force Threat Intelligence Index 2026](https://newsroom.ibm.com/2026-02-25-ibm-2026-x-force-threat-index-ai-driven-attacks-are-escalating-as-basic-security-gaps-leave-enterprises-exposed)
 - [MAESTRO: Agentic AI Threat Modeling Framework](https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro) (Cloud Security Alliance)
 - [Coding Agents Widen Your Supply Chain Attack Surface](https://securityboulevard.com/2026/03/coding-agents-widen-your-supply-chain-attack-surface/) (Security Boulevard, 2026)
-- [Gas Town: What Kubernetes for AI Coding Agents Actually Looks Like](https://cloudnativenow.com/features/gas-town-what-kubernetes-for-ai-coding-agents-actually-looks-like/) (Cloud Native Now, 2026)
+- [LiteLLM CVE: Suspected Supply Chain Incident](https://docs.litellm.ai/blog/security-update-march-2026) (LiteLLM, 2026)
 - [CNOE AI Platform Engineering](https://github.com/cnoe-io/ai-platform-engineering)
 - [How We Rebuilt Next.js with AI in One Week](https://blog.cloudflare.com/how-we-rebuilt-next-js-with-ai-in-one-week/) (Cloudflare, 2026)
 - [mcp-scanner](https://github.com/cisco-ai-defense/mcp-scanner) (Cisco AI Defense)
