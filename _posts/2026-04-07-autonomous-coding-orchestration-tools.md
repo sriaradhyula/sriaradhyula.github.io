@@ -165,8 +165,6 @@ The three gates of agent autonomy, which I describe in detail in the [Outshift b
 
 Most enterprises will operate across all three gates simultaneously, applying different autonomy levels to different types of work. A routine dependency update might run autonomously. A new feature touching payment logic requires human-in-the-loop. The gates are a risk-calibrated operating model, not a maturity ladder.
 
-![Agentic SDLC: Three-Layer Operating Model and Three Gates of Agent Autonomy](/assets/img/agentic-sdlc.jpeg)
-
 ### What the Orchestration Tools Are Missing for Enterprise
 
 None of the tools in this landscape provide a complete enterprise control framework out of the box. Sympozium comes closest with its K8s-native RBAC and policy CRDs. Paperclip provides task-based and budget governance. Cursor provides platform-specific sandboxing. But no single tool combines RBAC, TBAC, agent identity, provenance tracking, autonomy gates, and harness integration into a unified control plane.
