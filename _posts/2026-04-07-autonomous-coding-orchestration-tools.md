@@ -246,4 +246,4 @@ The teams that invest in understanding these patterns now, even if they start wi
 - [Harness Engineering for Coding Agent Users](https://martinfowler.com/articles/harness-engineering.html) (Birgitta Böckeler / Thoughtworks, 2026)
 - [Microsoft Agent Framework 1.0](https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/) (Microsoft, 2026)
 - [KubeClaw: OpenClaw for Adults](https://www.agentnative.dev/blog/kubeclaw-openclaw-for-adults) (Agent Native, 2026)
-- [Engineers Write the Rules. Agents Run the Ship Loop](https://sriaradhyula.github.io/posts/engineers-write-the-rules-agents-run-the-ship-loop/) (Sri Aradhyula, 2026)
+- [In the Agentic Coding Era, Engineering Value Lies in Governing Systems, Not Authoring Code](https://sriaradhyula.github.io/posts/engineers-write-the-rules-agents-run-the-ship-loop/#in-the-agentic-coding-era-engineering-value-lies-in-governing-systems-not-authoring-code) (Sri Aradhyula, 2026)
