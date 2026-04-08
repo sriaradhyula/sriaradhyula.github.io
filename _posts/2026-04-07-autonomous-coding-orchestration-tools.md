@@ -27,6 +27,10 @@ For the broader principles behind why this orchestration layer matters, includin
 
 [Claude Code Web](https://code.claude.com/docs/en/claude-code-on-the-web) is Anthropic's browser-based version of Claude Code that runs full agentic coding sessions in isolated, Anthropic-managed virtual machines. You connect a GitHub repository, describe a task, and Claude Code runs in a cloud VM with full access to the codebase. It reads the repo, plans across multiple files, executes changes, runs tests, iterates on failures, and creates a pull request. No local terminal or dev environment required. Each session runs in an isolated VM with network access controls limited by default. Credentials are never inside the sandbox; authentication is handled through a secure proxy with scoped credentials. Sessions can be transferred from browser to local terminal for continued work.
 
+### Claude Managed Agents
+
+Launched April 8, 2026 in public beta, [Claude Managed Agents](https://claude.com/blog/claude-managed-agents) is Anthropic's suite of composable APIs for building and deploying cloud-hosted agents at scale. Where Claude Code Web provides a browser-based coding session on a pre-built harness, Managed Agents exposes the underlying infrastructure as an API: you define your agent's tasks, tools, and guardrails, and Anthropic runs it. A built-in orchestration harness handles tool calling, context management, and error recovery. The platform includes production-grade agents with secure sandboxing and authentication, long-running sessions that persist through disconnections and operate autonomously for hours, and multi-agent coordination that lets agents spawn and direct subagents to parallelize complex work (available in research preview). Governance primitives include scoped permissions, identity management, and full execution tracing built into the Claude Console. In internal testing on structured file generation, Managed Agents improved task success by up to 10 points over a standard prompting loop, with the largest gains on the hardest problems. Early adopters include Notion (delegating open-ended tasks directly inside their workspace), Rakuten (specialist agents across product, sales, marketing, and finance deployed within a week each), Asana (AI Teammates working alongside humans inside Asana projects), Sentry (root-cause analysis to a Claude-powered patch-and-PR in one flow), and Atlassian (agents assigned directly from Jira).
+
 ### Google Jules
 
 [Jules](https://jules.google/) is Google's autonomous coding agent powered by Gemini models. You select a repository and branch, write a prompt, and Jules fetches the repo, clones it to a cloud VM, and develops a plan using Gemini 3 Pro. You review and approve the plan, Jules executes the changes, provides a diff, and creates a pull request. Jules also supports issue-driven workflows: label a GitHub issue with "jules" and it picks up the task directly. Three tiers: free (15 tasks/day, 3 concurrent), Pro (100 tasks/day, 15 concurrent), Ultra (300 tasks/day, 60 concurrent). The plan-review step provides a lightweight human-in-the-loop gate before code generation begins.
@@ -226,6 +230,7 @@ The teams that invest in understanding these patterns now, even if they start wi
 ### References
 
 - [Claude Code Web Documentation](https://code.claude.com/docs/en/claude-code-on-the-web) (Anthropic, 2026)
+- [Claude Managed Agents: get to production 10x faster](https://claude.com/blog/claude-managed-agents) (Anthropic, 2026)
 - [Jules: An Autonomous Coding Agent](https://jules.google/) (Google, 2026)
 - [OpenAI Symphony](https://github.com/openai/symphony) (OpenAI, 2026)
 - [Squad: AI Agent Teams for Any Project](https://github.com/bradygaster/squad) (Brady Gaster / Microsoft, 2026)
