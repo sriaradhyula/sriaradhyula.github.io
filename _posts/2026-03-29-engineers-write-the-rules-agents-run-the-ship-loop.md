@@ -292,6 +292,7 @@ The tools will keep changing, and in the agentic era, that change is happening f
 - [How We Rebuilt Next.js with AI in One Week](https://blog.cloudflare.com/how-we-rebuilt-next-js-with-ai-in-one-week/) (Cloudflare, 2026)
 - [mcp-scanner](https://github.com/cisco-ai-defense/mcp-scanner) (Cisco AI Defense)
 - [skill-scanner](https://github.com/cisco-ai-defense/skill-scanner) (Cisco AI Defense)
+- [Autonomous Coding Orchestration: A Practitioner's Guide to the Emerging Tool Landscape](https://sriaradhyula.github.io/posts/autonomous-coding-orchestration-tools/) (Sri Aradhyula, 2026)
 
 ---
 
