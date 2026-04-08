@@ -105,18 +105,6 @@ An IDE-centric orchestration tool with a Manager View dashboard for coordinating
 
 ---
 
-## Deterministic and Lightweight Orchestrators
-
-### Bernstein
-
-[Bernstein](https://github.com/iteratetograceland/bernstein) is a deterministic orchestrator that spawns parallel AI coding agents (Claude Code, Codex CLI, Gemini CLI), verifies with tests, and auto-commits. Its defining characteristic: zero LLM tokens spent on coordination. The orchestration logic is entirely computational, with LLM usage reserved for the actual coding work.
-
-### Kodo
-
-[Kodo](https://github.com/InfiniteCodeMonkeys/Kodo) is an autonomous multi-agent coding orchestrator that directs Claude Code, Codex, and Gemini CLI agents through work cycles with independent verification. Each cycle produces code, verifies it through an independent agent (not the author), and commits on success.
-
----
-
 ## Frameworks That Enable Orchestration
 
 ### Microsoft Agent Framework 1.0
@@ -185,7 +173,7 @@ The tools in this landscape share a set of capabilities that are genuinely trans
 
 **Persistent memory across sessions.** Squad's decisions.md, Gastown's beads, and Symphony's WORKFLOW.md all solve the context problem that plagues session-based agents. The team's accumulated knowledge travels with the code rather than disappearing when a session ends.
 
-**Agent-agnostic design.** The best tools (Paperclip, Sympozium, Vibe Kanban, Sortie, Bernstein) are adapter-based or agent-agnostic, letting you swap models and runtimes without rewriting your orchestration.
+**Agent-agnostic design.** The best tools (Paperclip, Sympozium, Vibe Kanban, Sortie) are adapter-based or agent-agnostic, letting you swap models and runtimes without rewriting your orchestration.
 
 **Governance primitives.** Paperclip's token budgets, Sympozium's ephemeral RBAC, Cursor's per-platform sandboxing, and Symphony's proof-of-work model each represent a different approach to the same problem: how do you constrain agent behavior without making the human the bottleneck?
 
@@ -247,8 +235,6 @@ The teams that invest in understanding these patterns now, even if they start wi
 - [DevIQ Symphony: Building Autonomous AI Developers at Enterprise Scale](https://www.deviq.io/insights/devops-ai-agent-symphony-part-1) (DevIQ, 2026)
 - [Implementing a Secure Sandbox for Local Agents](https://cursor.com/blog/agent-sandboxing) (Cursor, 2026)
 - [Sortie](https://github.com/nichochar/sortie) (2026)
-- [Bernstein](https://github.com/iteratetograceland/bernstein) (2026)
-- [Kodo](https://github.com/InfiniteCodeMonkeys/Kodo) (2026)
 - [Vibe Kanban](https://vibekanban.com) (BloopAI, 2026)
 - [Awesome Agent Orchestrators](https://github.com/andyrewlee/awesome-agent-orchestrators) (2026)
 - [The Code Agent Orchestra](https://addyosmani.com/blog/code-agent-orchestra/) (Addy Osmani, 2026)
