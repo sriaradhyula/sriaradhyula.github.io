@@ -1,0 +1,10 @@
+<script>
+  try {
+    if (localStorage.getItem('matrix-theme') !== 'false') {
+      document.documentElement.classList.add('matrix-mode');
+    }
+  } catch (_error) {
+    document.documentElement.classList.add('matrix-mode');
+  }
+</script>
+<script defer src="{{ '/assets/js/matrix-theme.js' | relative_url }}"></script>

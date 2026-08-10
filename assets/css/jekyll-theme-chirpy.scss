@@ -1,0 +1,370 @@
+---
+---
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* Clean dark editorial palette with an optional Matrix atmosphere. */
+
+:root,
+html[data-mode='dark'] {
+  --accent-green: #57d98a;
+  --accent-green-bright: #7cf5a8;
+  --accent-green-deep: #238a4c;
+  --surface-black: #0b0e0c;
+  --surface-panel: #111612;
+  --surface-raised: #171d18;
+  --green-line: rgb(87 217 138 / 18%);
+
+  color-scheme: dark;
+  --main-bg: var(--surface-black);
+  --mask-bg: rgb(2 5 3 / 82%);
+  --main-border-color: #202820;
+  --text-color: #c5cec7;
+  --text-muted-color: #7f8b82;
+  --text-muted-highlight-color: #a4b0a7;
+  --heading-color: #f0f5f1;
+  --label-color: #a6b1a8;
+  --blockquote-border-color: var(--accent-green-deep);
+  --blockquote-text-color: #98a49b;
+  --link-color: var(--accent-green);
+  --link-underline-color: rgb(87 217 138 / 35%);
+  --button-bg: var(--surface-panel);
+  --btn-border-color: #283229;
+  --btn-backtotop-color: var(--accent-green);
+  --btn-backtotop-border-color: #283229;
+  --card-header-bg: var(--surface-raised);
+  --checkbox-color: #57635a;
+  --checkbox-checked-color: var(--accent-green);
+  --img-bg: radial-gradient(circle, #1b231d 0%, #0c100d 100%);
+  --shimmer-bg: linear-gradient(
+    90deg,
+    rgb(255 255 255 / 0%) 0%,
+    rgb(255 255 255 / 5%) 50%,
+    rgb(255 255 255 / 0%) 100%
+  );
+  --site-title-color: #edf4ef;
+  --site-subtitle-color: #7f8b82;
+  --sidebar-bg: #0e120f;
+  --sidebar-border-color: #202820;
+  --sidebar-muted-color: #879189;
+  --sidebar-active-color: var(--accent-green-bright);
+  --sidebar-hover-bg: rgb(87 217 138 / 7%);
+  --sidebar-btn-bg: #151b16;
+  --sidebar-btn-color: #8f9c92;
+  --avatar-border-color: #344038;
+  --topbar-bg: rgb(11 14 12 / 82%);
+  --topbar-text-color: #adb8af;
+  --search-border-color: #29332a;
+  --search-icon-color: #6d796f;
+  --input-focus-border-color: var(--accent-green-deep);
+  --post-list-text-color: #aeb8b0;
+  --btn-patinator-text-color: #98a39a;
+  --btn-paginator-hover-color: var(--surface-raised);
+  --toc-highlight: var(--accent-green);
+  --toc-popup-border-color: #354038;
+  --btn-share-color: #7e8a80;
+  --btn-share-hover-color: var(--accent-green);
+  --card-bg: var(--surface-panel);
+  --card-hover-bg: var(--surface-raised);
+  --card-shadow: 0 8px 28px rgb(0 0 0 / 22%);
+  --footnote-target-bg: rgb(87 217 138 / 10%);
+  --tb-odd-bg: rgb(255 255 255 / 2%);
+  --tb-border-color: #283029;
+  --dash-color: #4b574d;
+  --kbd-wrap-color: #3d4840;
+  --kbd-text-color: #d3dbd5;
+  --kbd-bg-color: var(--surface-raised);
+  --prompt-text-color: #c0c9c2;
+  --prompt-tip-bg: rgb(87 217 138 / 8%);
+  --prompt-tip-icon-color: var(--accent-green);
+  --prompt-info-bg: rgb(47 185 255 / 8%);
+  --prompt-warning-bg: rgb(255 196 0 / 8%);
+  --prompt-danger-bg: rgb(255 62 62 / 8%);
+  --tag-border: #303a32;
+  --tag-shadow: rgb(0 0 0 / 20%);
+  --tag-hover: rgb(87 217 138 / 10%);
+  --search-tag-bg: var(--surface-raised);
+  --categories-border: #29322a;
+  --categories-hover-bg: var(--surface-raised);
+  --categories-icon-hover-color: var(--accent-green);
+  --timeline-color: #2d372f;
+  --timeline-node-bg: var(--accent-green-deep);
+  --timeline-year-dot-color: var(--surface-black);
+  --language-border-color: #29322a;
+  --highlight-bg-color: #0d120e;
+  --highlighter-rouge-color: #a9d8b8;
+  --highlight-lineno-color: #59665c;
+  --inline-code-bg: rgb(87 217 138 / 8%);
+  --code-color: #b6dfc2;
+  --code-header-text-color: #7f9083;
+  --code-header-muted-color: #28332b;
+  --code-header-icon-color: #617066;
+  --clipboard-checked-color: var(--accent-green);
+}
+
+html {
+  background: var(--surface-black);
+}
+
+body {
+  background: var(--main-bg);
+}
+
+::selection {
+  color: #061008;
+  background: rgb(87 217 138 / 82%);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #35473a;
+  border-color: var(--surface-black);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-green-deep);
+}
+
+#sidebar {
+  border-right: 1px solid var(--sidebar-border-color);
+}
+
+#sidebar .site-title {
+  color: var(--site-title-color);
+  letter-spacing: -0.015em;
+}
+
+#sidebar .site-subtitle {
+  line-height: 1.55;
+}
+
+#sidebar #avatar {
+  border: 1px solid var(--avatar-border-color);
+}
+
+#sidebar .nav-link:hover,
+#sidebar .nav-link.active {
+  color: var(--sidebar-active-color);
+}
+
+#sidebar .sidebar-bottom a,
+#sidebar .sidebar-bottom #matrix-toggle {
+  border: 1px solid #252e27;
+}
+
+#matrix-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-bottom: 0.5rem;
+  padding: 0;
+  color: var(--sidebar-btn-color);
+  background: var(--sidebar-btn-bg);
+  border-radius: 50%;
+  transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+#matrix-toggle:hover,
+#matrix-toggle[aria-pressed='true'] {
+  color: var(--accent-green-bright);
+  border-color: var(--accent-green-deep);
+}
+
+#matrix-toggle[aria-pressed='true'] {
+  background: rgb(35 138 76 / 18%);
+}
+
+#topbar-wrapper {
+  border-bottom: 1px solid rgb(255 255 255 / 3%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.content a:not(.img-link):hover,
+#search-results a:hover,
+#access-lastmod a:hover,
+footer a:hover,
+#topbar #breadcrumb a:hover {
+  color: var(--accent-green-bright) !important;
+  border-bottom-color: var(--accent-green);
+}
+
+#post-list .card {
+  border: 1px solid #202820;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+}
+
+#post-list .card-wrapper:hover .card {
+  border-color: #344037;
+  background: var(--card-hover-bg);
+  transform: translateY(-2px);
+}
+
+.highlight,
+div[class^='language-'] {
+  border: 1px solid #242e26;
+}
+
+.code-header {
+  border-bottom: 1px solid #202a22;
+}
+
+blockquote {
+  background: rgb(87 217 138 / 3%);
+}
+
+search:focus-within {
+  border-color: var(--accent-green-deep);
+}
+
+footer {
+  background: var(--surface-black);
+}
+
+/* Optional Matrix mode */
+
+html.matrix-mode body {
+  isolation: isolate;
+  background-color: transparent;
+  background-image:
+    linear-gradient(rgb(0 255 65 / 1.8%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(0 255 65 / 1.2%) 1px, transparent 1px),
+    radial-gradient(circle at 70% 15%, rgb(0 255 65 / 5%), transparent 34%);
+  background-size: 32px 32px, 32px 32px, auto;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+html.matrix-mode body::after {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  pointer-events: none;
+  content: '';
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 3px,
+    rgb(0 0 0 / 10%) 4px
+  );
+  opacity: 0.42;
+}
+
+#matrix-rain {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.055;
+}
+
+html.matrix-mode #matrix-rain {
+  display: block;
+}
+
+html.matrix-mode #sidebar {
+  box-shadow: 12px 0 40px rgb(0 0 0 / 28%);
+}
+
+html.matrix-mode #sidebar .site-title {
+  color: #00ff41;
+  font-family: inherit;
+  letter-spacing: 0.035em;
+  text-shadow: 0 0 14px rgb(0 255 65 / 42%);
+}
+
+html.matrix-mode #sidebar #avatar {
+  border-color: #238a4c;
+  box-shadow: 0 0 0 4px rgb(0 255 65 / 4%), 0 0 28px rgb(0 255 65 / 18%);
+}
+
+html.matrix-mode #sidebar .nav-link.active {
+  text-shadow: 0 0 10px rgb(0 255 65 / 30%);
+}
+
+html.matrix-mode h1,
+html.matrix-mode h2,
+html.matrix-mode h3,
+html.matrix-mode h4,
+html.matrix-mode h5,
+html.matrix-mode #topbar-title,
+html.matrix-mode #toc-bar .label,
+html.matrix-mode header .post-desc,
+html.matrix-mode #search-results a {
+  font-family: inherit;
+}
+
+html.matrix-mode h1::after {
+  display: inline-block;
+  width: 0.52em;
+  height: 0.12em;
+  margin-left: 0.28em;
+  content: '';
+  background: #00ff41;
+  box-shadow: 0 0 10px rgb(0 255 65 / 52%);
+  animation: matrix-cursor 1.1s steps(1, end) infinite;
+  vertical-align: 0.05em;
+}
+
+html.matrix-mode #post-list .card {
+  overflow: hidden;
+  border-color: rgb(0 255 65 / 14%);
+  border-radius: 2px;
+}
+
+html.matrix-mode #post-list .card::before {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  content: '';
+  background: linear-gradient(transparent, #00ff41, transparent);
+  opacity: 0.52;
+}
+
+html.matrix-mode #post-list .card-wrapper:hover .card,
+html.matrix-mode .post-tag:hover,
+html.matrix-mode .tag:hover,
+html.matrix-mode #back-to-top:hover {
+  border-color: rgb(0 255 65 / 36%) !important;
+  box-shadow: 0 0 22px rgb(0 255 65 / 10%);
+}
+
+@keyframes matrix-cursor {
+  0%,
+  48% {
+    opacity: 1;
+  }
+
+  49%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 849px) {
+  #matrix-rain {
+    opacity: 0.04;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #matrix-rain {
+    display: none !important;
+  }
+
+  html.matrix-mode h1::after {
+    animation: none;
+  }
+}
