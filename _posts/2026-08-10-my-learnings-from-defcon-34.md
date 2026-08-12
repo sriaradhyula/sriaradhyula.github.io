@@ -4,8 +4,7 @@ date: 2026-08-10 00:00:00 -0500
 categories: [Security, Conferences]
 tags: [defcon, cybersecurity, agentic-ai, red-teaming, ai-security]
 description: >-
-  What I learned at my first DEF CON about AI security, hardware hacking, and
-  the hacker community.
+  Lessons from DEF CON and cybersecurity in the agentic era.
 pin: true
 ---
 
