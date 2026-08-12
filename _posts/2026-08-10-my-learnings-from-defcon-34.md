@@ -11,21 +11,6 @@ image:
 pin: true
 ---
 
-<div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
-  <figure class="col mb-0">
-    <a href="/assets/img/posts/defcon-34/entry-way.jpeg">
-      <img class="img-fluid rounded" src="/assets/img/posts/defcon-34/entry-way.jpeg" alt="DEF CON 34 entryway" loading="lazy">
-    </a>
-    <figcaption class="text-center mt-2">DEF CON entryway.</figcaption>
-  </figure>
-  <figure class="col mb-0">
-    <a href="/assets/img/posts/defcon-34/previous-years-logos.jpeg">
-      <img class="img-fluid rounded" src="/assets/img/posts/defcon-34/previous-years-logos.jpeg" alt="Previous years' DEF CON logos" loading="lazy">
-    </a>
-    <figcaption class="text-center mt-2">Previous years' logos.</figcaption>
-  </figure>
-</div>
-
 This was my first DEF CON, and it blew away my expectations. Every technical conference has its strengths and weaknesses. Most are educational, and some can be overwhelming, but DEF CON was by far the most technically rewarding and personally fulfilling conference I have attended.
 
 At DEF CON, “hacking” is used in its broadest sense. There is enough technical “eye candy” to satisfy my tinkerer brain with things like lock picking, soldering components onto badge add-ons (SAOs), learning about vehicle and satellite hacking, robotics, wireless security, AI Red teaming, Agentic Security and so much more. At the conference, I found my people, these are the folks that get excited by the same topics, tools, and hacks that excite me.
