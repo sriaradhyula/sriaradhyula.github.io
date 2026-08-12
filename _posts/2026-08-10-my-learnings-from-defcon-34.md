@@ -69,7 +69,7 @@ First, a big shout-out to our poster team at the AI Village. It was wonderful to
 Our [Securing Cross-Enterprise AI Agents](https://aivillage.org/posters/securing-cross-enterprise-ai-agents/) poster demonstration explored requests between agents operating in different organizational identity domains. We used Client ID Metadata (CIMD), ID-JAG and Token Exchange to ask a fundamental question: how can an agent carry its identity, delegated authority, and user intent across an organizational boundary while ensuring the resulting access is appropriately downscoped. Checkout our demo @[github](https://github.com/agntcy/agent-identity-demos)
 
 <video class="w-100 rounded mb-4" autoplay loop muted playsinline controls preload="metadata">
-  <source src="/assets/img/posts/defcon-34/agent-identity-demo.webm" type="video/webm">
+  <source src="/assets/img/posts/defcon-34/agent-identity-demo.mp4" type="video/mp4">
   Your browser does not support embedded videos.
 </video>
 
