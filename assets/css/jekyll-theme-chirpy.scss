@@ -519,3 +519,24 @@ html.matrix-mode body {
     width: 33.333333%;
   }
 }
+
+/* Let long-form posts grow with wide browser windows while reserving a
+   compact, stable column for the desktop table of contents. */
+@media (min-width: 1200px) {
+  #main-wrapper > .container {
+    width: 100%;
+    max-width: min(calc(100vw - 16.25rem), 100rem);
+    padding-right: clamp(1.5rem, 2.5vw, 3rem) !important;
+    padding-left: clamp(1.5rem, 2.5vw, 3rem) !important;
+  }
+
+  #main-wrapper main[aria-label='Main Content'] {
+    flex: 1 1 auto;
+    width: calc(100% - clamp(14rem, 16vw, 17rem));
+  }
+
+  #main-wrapper #panel-wrapper {
+    flex: 0 0 clamp(14rem, 16vw, 17rem);
+    width: clamp(14rem, 16vw, 17rem);
+  }
+}
