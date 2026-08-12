@@ -200,7 +200,7 @@ I attended a soldering workshop and assembled a simple expansion board containin
 
 ## Hacking beyond software
 
-<div class="row row-cols-1 row-cols-md-3 g-4 mb-4 notion-media">
+<div class="row row-cols-1 row-cols-md-3 g-4 mb-4 notion-media notion-media-wide">
   <figure class="col mb-0">
     <a href="/assets/img/posts/defcon-34/truck-hacking.jpg">
       <img class="img-fluid rounded" src="/assets/img/posts/defcon-34/truck-hacking.jpg" alt="A semi-truck for hands-on vehicle security research" loading="lazy">

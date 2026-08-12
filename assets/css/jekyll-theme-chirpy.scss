@@ -502,6 +502,10 @@ html.matrix-mode body {
   margin-left: auto !important;
 }
 
+.content .notion-media.notion-media-wide {
+  max-width: 54rem;
+}
+
 .content video.notion-media {
   display: block;
 }
