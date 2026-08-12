@@ -2,7 +2,7 @@
   'use strict';
 
   const scaleStorageKey = 'reader-font-scale';
-  const familyStorageKey = 'reader-font-family';
+  const familyStorageKey = 'reader-font-family-v2';
   const scales = [0.9, 1, 1.1, 1.2, 1.3];
   const defaultIndex = scales.indexOf(1);
   const fontFamilies = [
@@ -10,6 +10,7 @@
     { key: 'serif', label: 'Serif' },
     { key: 'mono', label: 'Mono' }
   ];
+  const defaultFontFamily = 'mono';
   const root = document.documentElement;
   const readTime = document.querySelector('.readtime');
 
@@ -28,9 +29,11 @@
   const readFontFamily = () => {
     try {
       const storedFamily = window.sessionStorage.getItem(familyStorageKey);
-      return fontFamilies.some(({ key }) => key === storedFamily) ? storedFamily : 'default';
+      return fontFamilies.some(({ key }) => key === storedFamily)
+        ? storedFamily
+        : defaultFontFamily;
     } catch (_error) {
-      return 'default';
+      return defaultFontFamily;
     }
   };
 

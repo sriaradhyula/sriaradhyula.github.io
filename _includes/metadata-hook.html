@@ -13,7 +13,7 @@
       document.documentElement.style.setProperty('--reader-font-scale', fontScale);
     }
 
-    const fontFamily = sessionStorage.getItem('reader-font-family');
+    const fontFamily = sessionStorage.getItem('reader-font-family-v2');
     if (['default', 'serif', 'mono'].includes(fontFamily)) {
       document.documentElement.dataset.readerFont = fontFamily;
     }
