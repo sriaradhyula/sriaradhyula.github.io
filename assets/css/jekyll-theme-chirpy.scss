@@ -19,6 +19,8 @@ html[data-mode='dark'] {
   --surface-panel: #111612;
   --surface-raised: #171d18;
   --green-line: rgb(87 217 138 / 18%);
+  --reader-font-scale: 1;
+  --reader-font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
 
   color-scheme: dark;
   --main-bg: var(--surface-black);
@@ -107,12 +109,29 @@ html[data-mode='dark'] {
   --clipboard-checked-color: var(--accent-green);
 }
 
+html[data-reader-font='default'] {
+  --reader-font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+}
+
+html[data-reader-font='serif'] {
+  --reader-font-family: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+html[data-reader-font='mono'] {
+  --reader-font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
 html {
   background: var(--surface-black);
 }
 
 body {
   background: var(--main-bg);
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {
@@ -180,6 +199,87 @@ body {
   background: rgb(35 138 76 / 18%);
 }
 
+#reader-font-controls,
+#reader-font-family-controls {
+  display: inline-flex;
+  overflow: hidden;
+  align-items: center;
+  height: 1.6rem;
+  margin-right: 0.65rem;
+  border: 1px solid var(--main-border-color);
+  border-radius: 999px;
+  background: var(--card-bg);
+  vertical-align: middle;
+}
+
+#reader-font-family-controls {
+  margin-right: 0.4rem;
+}
+
+#reader-font-controls button,
+#reader-font-family-controls button {
+  min-width: 1.65rem;
+  height: 100%;
+  padding: 0 0.3rem;
+  color: var(--text-muted-color);
+  background: transparent;
+  border: 0;
+  border-right: 1px solid var(--main-border-color);
+  font: 600 0.68rem/1 'SFMono-Regular', Consolas, monospace;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+#reader-font-family-controls button {
+  min-width: 2rem;
+  font-size: 0.72rem;
+}
+
+#reader-font-family-controls button[data-font-family='default'] {
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
+    Arial, sans-serif;
+}
+
+#reader-font-family-controls button[data-font-family='serif'] {
+  font-family: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+#reader-font-family-controls button[data-font-family='mono'] {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+#reader-font-controls button:last-of-type,
+#reader-font-family-controls button:last-of-type {
+  border-right: 0;
+}
+
+#reader-font-controls button:hover,
+#reader-font-controls button:focus-visible,
+#reader-font-controls button[aria-pressed='true'],
+#reader-font-family-controls button:hover,
+#reader-font-family-controls button:focus-visible,
+#reader-font-family-controls button[aria-pressed='true'] {
+  color: var(--accent-green-bright);
+  background: rgb(35 138 76 / 18%);
+}
+
+#reader-font-controls button:disabled {
+  cursor: not-allowed;
+  opacity: 0.38;
+}
+
+@media (max-width: 374px) {
+  #reader-font-controls,
+  #reader-font-family-controls {
+    margin-right: 0.35rem;
+  }
+
+  #reader-font-controls button,
+  #reader-font-family-controls button {
+    min-width: 1.5rem;
+    padding: 0 0.2rem;
+  }
+}
+
 #topbar-wrapper {
   border-bottom: 1px solid rgb(255 255 255 / 3%);
   backdrop-filter: blur(12px);
@@ -226,6 +326,25 @@ search:focus-within {
 
 footer {
   background: var(--surface-black);
+}
+
+#main-wrapper .content {
+  font-size: calc(1rem * var(--reader-font-scale));
+}
+
+#main-wrapper article > header,
+#main-wrapper .content {
+  font-family: var(--reader-font-family);
+}
+
+#main-wrapper article > header h1,
+#main-wrapper .content h1,
+#main-wrapper .content h2,
+#main-wrapper .content h3,
+#main-wrapper .content h4,
+#main-wrapper .content h5,
+#main-wrapper .content h6 {
+  font-family: inherit;
 }
 
 /* Optional Matrix mode */
@@ -366,5 +485,37 @@ html.matrix-mode #back-to-top:hover {
 
   html.matrix-mode h1::after {
     animation: none;
+  }
+}
+
+/* Notion-style system typography stays readable with Matrix mode enabled. */
+html.matrix-mode body {
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+}
+
+/* Match Notion's centered reading-width media instead of filling wide layouts. */
+.content .notion-media {
+  width: 100%;
+  max-width: 46rem;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+.content .notion-media.notion-media-wide {
+  max-width: 54rem;
+}
+
+.content video.notion-media {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .content .notion-media.row-cols-md-2 > * {
+    width: 50%;
+  }
+
+  .content .notion-media.row-cols-md-3 > * {
+    width: 33.333333%;
   }
 }
