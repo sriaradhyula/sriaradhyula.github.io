@@ -1,8 +1,7 @@
 <script>
   try {
-    if (localStorage.getItem('matrix-theme') !== 'false') {
-      document.documentElement.classList.add('matrix-mode');
-    }
+    const matrixPreference = localStorage.getItem('matrix-theme-v2');
+    document.documentElement.classList.toggle('matrix-mode', matrixPreference !== 'false');
   } catch (_error) {
     document.documentElement.classList.add('matrix-mode');
   }
@@ -21,5 +20,5 @@
     // The default reading settings remain available when storage is unavailable.
   }
 </script>
-<script defer src="{{ '/assets/js/matrix-theme.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/matrix-theme.js' | relative_url }}?v=2"></script>
 <script defer src="{{ '/assets/js/reading-controls.js' | relative_url }}"></script>
