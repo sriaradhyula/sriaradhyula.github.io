@@ -87,7 +87,7 @@ The discussion was especially timely in light of [OpenAI’s disclosure of the H
 
 One of the most important themes for me was the risk from malicious or poisoned agent skills. We are downloading and composing skills from many sources, much as we adopted open-source libraries and container images, but skills are often natural-language instructions rather than conventional binaries and hard to scan for vulnerability signatures.
 
-<figure class="mb-4">
+<figure class="mb-4 notion-media">
   <a href="/assets/img/posts/defcon-34/malskills-demo-lab-defcon34.jpg">
     <img class="img-fluid rounded" src="/assets/img/posts/defcon-34/malskills-demo-lab-defcon34.jpg" alt="Nur Gucu presenting MalSkill Lab at DEF CON 34" loading="lazy">
   </a>
@@ -114,7 +114,7 @@ Tools such as the open-source [Cisco AI Defense Skill Scanner](https://github.co
 
 ## Red Team Village
 
-<div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
+<div class="row row-cols-1 row-cols-md-2 g-4 mb-4 notion-media">
   <figure class="col mb-0">
     <a href="/assets/img/posts/defcon-34/red-team-village-1.jpeg">
       <img class="img-fluid rounded" src="/assets/img/posts/defcon-34/red-team-village-1.jpeg" alt="The Red Team Village at DEF CON 34" loading="lazy">
@@ -162,7 +162,7 @@ Any offensive tooling must be reviewed and run only in an isolated environment a
 
 ## Conference badges and SAOs
 
-<figure class="mb-4">
+<figure class="mb-4 notion-media">
   <a href="/assets/img/posts/defcon-34/badges-saos.jpg">
     <img class="img-fluid rounded" src="/assets/img/posts/defcon-34/badges-saos.jpg" alt="DEF CON badge with SAOs" loading="lazy">
   </a>
@@ -173,7 +173,7 @@ DEF CON badge is not merely an entrance credential. It is an extensible circuit 
 
 ### Learning to solder
 
-<div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
+<div class="row row-cols-1 row-cols-md-2 g-4 mb-4 notion-media">
   <figure class="col mb-0">
     <a href="/assets/img/posts/defcon-34/hardware-hacking-village.jpg">
       <img class="img-fluid rounded" src="/assets/img/posts/defcon-34/hardware-hacking-village.jpg" alt="Hardware Hacking Village and Solder Skills Village" loading="lazy">
@@ -200,7 +200,7 @@ I attended a soldering workshop and assembled a simple expansion board containin
 
 ## Hacking beyond software
 
-<div class="row row-cols-1 row-cols-md-3 g-4 mb-4">
+<div class="row row-cols-1 row-cols-md-3 g-4 mb-4 notion-media">
   <figure class="col mb-0">
     <a href="/assets/img/posts/defcon-34/truck-hacking.jpg">
       <img class="img-fluid rounded" src="/assets/img/posts/defcon-34/truck-hacking.jpg" alt="A semi-truck for hands-on vehicle security research" loading="lazy">
@@ -225,7 +225,7 @@ At DEF CON, “hacking” is used in its broadest sense: deeply understanding ho
 
 ## Physical security and lock picking
 
-<div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
+<div class="row row-cols-1 row-cols-md-2 g-4 mb-4 notion-media">
   <figure class="col mb-0">
     <a href="/assets/img/posts/defcon-34/physical-security-village.jpg">
       <img class="img-fluid rounded" src="/assets/img/posts/defcon-34/physical-security-village.jpg" alt="Physical Security Village" loading="lazy">
@@ -240,7 +240,7 @@ At DEF CON, “hacking” is used in its broadest sense: deeply understanding ho
   </figure>
 </div>
 
-<div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
+<div class="row row-cols-1 row-cols-md-2 g-4 mb-4 notion-media">
   <figure class="col mb-0">
     <a href="/assets/img/posts/defcon-34/lock-picks-display.jpg">
       <img class="img-fluid rounded" src="/assets/img/posts/defcon-34/lock-picks-display.jpg" alt="Lock-picking tools and instruction" loading="lazy">
@@ -257,7 +257,7 @@ At DEF CON, “hacking” is used in its broadest sense: deeply understanding ho
 
 ## Tech Trivia with EFF
 
-<figure class="mb-4">
+<figure class="mb-4 notion-media">
   <a href="/assets/img/posts/defcon-34/eff-tech-trivia.png">
     <img class="img-fluid rounded" src="/assets/img/posts/defcon-34/eff-tech-trivia.png" alt="EFF Tech Trivia event" loading="lazy">
   </a>

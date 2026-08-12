@@ -493,3 +493,25 @@ html.matrix-mode body {
   font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
     Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
 }
+
+/* Match Notion's centered reading-width media instead of filling wide layouts. */
+.content .notion-media {
+  width: 100%;
+  max-width: 46rem;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+.content video.notion-media {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .content .notion-media.row-cols-md-2 > * {
+    width: 50%;
+  }
+
+  .content .notion-media.row-cols-md-3 > * {
+    width: 33.333333%;
+  }
+}
