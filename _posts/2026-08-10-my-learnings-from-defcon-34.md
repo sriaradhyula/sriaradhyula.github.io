@@ -114,7 +114,7 @@ Tools such as the open-source [Cisco AI Defense Skill Scanner](https://github.co
 
 ## Red Team Village
 
-<div class="row row-cols-1 row-cols-md-2 g-4 mb-4 notion-media">
+<div class="row row-cols-1 row-cols-md-2 g-4 mb-4">
   <figure class="col mb-0">
     <a href="/assets/img/posts/defcon-34/red-team-village-1.jpeg">
       <img class="img-fluid rounded" src="/assets/img/posts/defcon-34/red-team-village-1.jpeg" alt="The Red Team Village at DEF CON 34" loading="lazy">
