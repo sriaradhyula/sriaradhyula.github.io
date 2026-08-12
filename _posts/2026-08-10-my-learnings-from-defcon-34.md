@@ -4,8 +4,8 @@ date: 2026-08-10 00:00:00 -0500
 categories: [Security, Conferences]
 tags: [defcon, cybersecurity, agentic-ai, red-teaming, ai-security]
 description: >-
-  Lessons from my first DEF CON, from cross-enterprise agent security and
-  agentic red teaming to skill poisoning, hardware hacking, and community.
+  What I learned at my first DEF CON about AI security, hardware hacking, and
+  the hacker community.
 pin: true
 ---
 
