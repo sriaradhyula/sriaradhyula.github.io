@@ -5,6 +5,9 @@ categories: [Security, Conferences]
 tags: [defcon, cybersecurity, agentic-ai, red-teaming, ai-security]
 description: >-
   Lessons from DEF CON and cybersecurity in the agentic era.
+image:
+  path: /assets/img/posts/defcon-34/linkedin-preview.png
+  alt: DEF CON 34 badge, SAO, and lanyard
 pin: true
 ---
 
