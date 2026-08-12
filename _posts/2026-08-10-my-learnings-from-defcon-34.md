@@ -13,7 +13,7 @@ pin: true
 
 This was my first DEF CON, and it blew away my expectations. Every technical conference has its strengths and weaknesses. Most are educational, and some can be overwhelming, but DEF CON was by far the most technically rewarding and personally fulfilling conference I have attended.
 
-At DEF CON, “hacking” is used in its broadest sense. There is enough technical “eye candy” to satisfy my tinkerer brain with things like lock picking, soldering components onto badge add-ons (SAOs), learning about vehicle and satellite hacking, robotics, wireless security, AI Red teaming, Agentic Security and so much more. At the conference, I found my people, these are the folks that get excited by the same topics, tools, and hacks that excite me.
+At DEF CON, “hacking” is used in its broadest sense. There is enough technical “eye candy” to satisfy my tinkerer brain with things like lock picking, soldering components onto badge add-ons (SAOs), learning about vehicle and satellite hacking, robotics, wireless security, AI Red teaming, Agentic Security and so much more. At the conference, I found my people - these are the folks that get excited by the same topics, tools, and hacks that excite me.
 
 In this blog, I wrote down a few of my observations from a small lens of what I could experience at a vast conference. It will probably take me another month or longer to [watch the recordings](https://media.defcon.org/), read other view points like this one, digest the material, internalize what I learned, and put it to good use.
 
@@ -23,7 +23,7 @@ In this blog, I wrote down a few of my observations from a small lens of what I 
 
 - Listening to various talks & demos and in my conversations with peers, there is a general consensus that the agentic era of adversarial attacks is already here. Red, blue, and purple teaming are all becoming increasingly agentic.
 
-- After attending the panel [**The Defender’s Dilemma: Releasing Dual-Use AI Models as Capabilities Climb**](https://hackertracker.app/defcon34/content/67734), AI models can be dual-use (offense and defense). Frontier Cyber models are great, but there is uneven access. Open-weight models like Qwen, Kimi, GLM, etc. will democratize both offensive and defensive capabilities, but they also lower barriers for attackers. Organizations need a strategy to on how they plan to defend at agentic speed or scale.
+- The panel [**The Defender’s Dilemma: Releasing Dual-Use AI Models as Capabilities Climb**](https://hackertracker.app/defcon34/content/67734) demonstrated that AI models can be dual-use (offense and defense). Frontier Cyber models are great, but there is uneven access. Open-weight models like Qwen, Kimi, GLM, etc. will democratize both offensive and defensive capabilities, but they also lower barriers for attackers. Enterprises need a solid strategy on how they plan to defend cybersecurity at agentic speed or scale.
 
 - In one of the Red team village tactic workshops, I learned that frontier models do not need to be specialized cyber models to find common vulnerabilities or potential zero-days. With the right skills, tools, context, and validation loop, I found that general-purpose models (Opus 4.8, GPT 5.6 Sol) can be remarkably capable, although some frontier models now have guardrails that block offensive/defensive queries.
 
@@ -31,7 +31,7 @@ In this blog, I wrote down a few of my observations from a small lens of what I 
 
 - **Agent integrity** requires much more than authorization at an MCP or tool boundary. Agent Identity, user intent, delegation, authorization, and auditability must survive the entire chain of action.
 
-- I left convinced that application developers, infrastructure engineers, SREs, and defenders need to be educated with Cybersecurity fundamentals. Security has always been everyone’s responsibility, even more so in agentic era.
+- I left convinced that application developers, infrastructure engineers, SREs, and defenders need to be educated with Cybersecurity fundamentals. Security has always been everyone’s responsibility, even more so in an agentic era.
 
 - ***This is simultaneously the most exciting and the most frightening time to work in Cybersecurity.***
 
@@ -92,7 +92,7 @@ One of the most important themes for me was the risk from malicious or poisoned 
   </figcaption>
 </figure>
 
-Nur Gucu’s Demo Lab made this risk tangible. an AI agent trusts the skills in its directory, so what happens when one of those skills is malicious. The demonstration showed natural-language malware embedded in agent skills; no binary or traditional malware signature, just English instructions executing with the agent’s tool and operating system tools access.
+Nur Gucu’s Demo Lab made this risk tangible - an AI agent trusts the skills in its directory, so what happens when one of those skills is malicious. The demonstration showed natural-language malware embedded in agent skills; no binary or traditional malware signature, just English instructions executing with the agent’s tool and operating system tools access.
 
 The lab demonstrated three escalating attack patterns:
 
@@ -122,7 +122,7 @@ Tools such as the open-source [Cisco AI Defense Skill Scanner](https://github.co
   </figure>
 </div>
 
-I spent much of lot of time in the Red Team Village because it resonated with me at the intersection of Security and Agentic.
+I spent a lot of time in the Red Team Village because it resonated with me at the intersection of Security and Agentic.
 
 My read from the talks is that traditional penetration testing tools are not disappearing but agents are becoming an orchestration and reasoning layer over those tools. Frontier models already understand how many established security tools work. Given an authorized testing target and appropriate context, an agent can map a codebase, select tools, generate probes, interpret results, and coordinate follow-up investigations. There may be some nuance in how frontier models implemented guardrails on cyber security capabilities vs open-weight models.
 
@@ -136,7 +136,7 @@ I believe penetration testing should be a [continuous loop](https://sriaradhyula
 
 At a Red Team Village workshop called **Vulnpocalypse**, I worked with a custom skill authored by **Chris Haller** that uses frontier models to hunt for vulnerabilities and potential zero-days. A well-designed skill can guide a model through source-code mapping, trust-boundary analysis, hypothesis generation, testing, and the collection of reproducible evidence. 
 
-I experimented with this approach against opensource code and upstream dependencies. The exercise gave me useful insight into how frontier models can support vulnerability research, while reinforcing the importance of validating their analysis within the relevant code paths and trust boundaries. This workshop also demostrated that, defenders and developers can use frontier models that are not Mythos or GPT Cyber class models and yet are able to find vulnerabilities and 0-days
+I experimented with this approach against opensource code and upstream dependencies. The exercise gave me useful insight into how frontier models can support vulnerability research, while reinforcing the importance of validating their analysis within the relevant code paths and trust boundaries. This workshop also demostrated that defenders and developers can use frontier models that are not Mythos or GPT Cyber class models and yet are able to find vulnerabilities and zero-days
 
 A model-generated finding is only a hypothesis. Establishing a credible vulnerability requires reproducible evidence, a clear assessment of impact, and careful validation against the actual code path.
 
@@ -163,7 +163,7 @@ Any offensive tooling must be reviewed and run only in an isolated environment a
   <figcaption class="text-center mt-2">DEF CON badge with add-ons from AI Village and one I made. SAOs are “shitty add-ons” in DEF CON terminology.</figcaption>
 </figure>
 
-DEF CON badge is an extensible circuit board with a camera and QR scanner, powered by batteries and designed for interaction with other attendees. It changes behavior as people connect, scan, and explore it, and its expansion pins allow SAOs to be attached. I have seen some attendees attach laser tag modules and use them. It is a wonderful learn and hack on to these boards. 
+DEF CON badge is an extensible circuit board with a camera and QR scanner designed for scanning other attendees badges. LEDs change colors as people scan each other's badges and its expansion pins allow SAOs to be attached. I have seen some attendees attach laser tag modules and play with each other. It is a wonderful to learn and hack on to these boards.
 
 ### Learning to solder
 
