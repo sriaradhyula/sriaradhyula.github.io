@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const storageKey = 'matrix-theme';
+  const storageKey = 'matrix-theme-v2';
   const root = document.documentElement;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const sidebarBottom = document.querySelector('#sidebar .sidebar-bottom');
