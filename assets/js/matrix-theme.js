@@ -6,6 +6,12 @@
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const sidebarBottom = document.querySelector('#sidebar .sidebar-bottom');
 
+  try {
+    root.classList.toggle('matrix-mode', window.localStorage.getItem(storageKey) !== 'false');
+  } catch (_error) {
+    root.classList.add('matrix-mode');
+  }
+
   if (!sidebarBottom) return;
 
   const button = document.createElement('button');
