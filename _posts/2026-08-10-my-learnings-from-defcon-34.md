@@ -255,8 +255,6 @@ At DEF CON, “hacking” is used in its broadest sense: deeply understanding ho
   </figure>
 </div>
 
-## Tech Trivia with EFF
-
 <figure class="mb-4 notion-media">
   <a href="/assets/img/posts/defcon-34/eff-tech-trivia.png">
     <img class="img-fluid rounded" src="/assets/img/posts/defcon-34/eff-tech-trivia.png" alt="EFF Tech Trivia event" loading="lazy">
