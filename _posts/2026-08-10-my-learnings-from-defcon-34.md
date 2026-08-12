@@ -15,18 +15,25 @@ This was my first DEF CON, and it blew away my expectations. Every technical con
 
 At DEF CON, “hacking” is used in its broadest sense. There is enough technical “eye candy” to satisfy my tinkerer brain with things like lock picking, soldering components onto badge add-ons (SAOs), learning about vehicle and satellite hacking, robotics, wireless security, AI Red teaming, Agentic Security and so much more. At the conference, I found my people, these are the folks that get excited by the same topics, tools, and hacks that excite me.
 
-In the ramblings below, I wrote down a few of my observations from a small lens of what I could experience at a vast conference. It will probably take me another month or longer to [watch the recordings](https://media.defcon.org/), read other view points like this one, digest the material, internalize what I learned, and put it to good use.
+In this blog, I wrote down a few of my observations from a small lens of what I could experience at a vast conference. It will probably take me another month or longer to [watch the recordings](https://media.defcon.org/), read other view points like this one, digest the material, internalize what I learned, and put it to good use.
 
 ## TL;DR
 
 - One of the clearest themes I heard at the AI Village was the urgency of securing agents within and cross enterprise boundaries, securing MCP tools, and securing agent actions. Our [poster on securing cross-enterprise AI agents](https://aivillage.org/posters/securing-cross-enterprise-ai-agents/) felt especially relevant in this multi-agent and cross-enterprise world.
+
 - Listening to various talks & demos and in my conversations with peers, there is a general consensus that the agentic era of adversarial attacks is already here. Red, blue, and purple teaming are all becoming increasingly agentic.
-- After attending the panel [**The Defender’s Dilemma: Releasing Dual-Use AI Models as Capabilities Climb**](https://hackertracker.app/defcon34/content/67734), AI models can be dual-use (offense and defense). Frontier Cyber models are great, but there is uneven accessibility. Open-weight models like Qwen, Kimi, GLM, etc. will democratize both offensive and defensive capabilities, but they also lower barriers for attackers. Organizations need a strategy to on how they plan to defend at agentic scale.
+
+- After attending the panel [**The Defender’s Dilemma: Releasing Dual-Use AI Models as Capabilities Climb**](https://hackertracker.app/defcon34/content/67734), AI models can be dual-use (offense and defense). Frontier Cyber models are great, but there is uneven access. Open-weight models like Qwen, Kimi, GLM, etc. will democratize both offensive and defensive capabilities, but they also lower barriers for attackers. Organizations need a strategy to on how they plan to defend at agentic speed or scale.
+
 - In one of the Red team village tactic workshops, I learned that frontier models do not need to be specialized cyber models to find common vulnerabilities or potential zero-days. With the right skills, tools, context, and validation loop, I found that general-purpose models (Opus 4.8, GPT 5.6 Sol) can be remarkably capable, although some frontier models now have guardrails that block offensive/defensive queries.
+
 - Prompts, skills, tool calls, and agent memory can all be poisoned and should be treated as part of the software supply chain. In one of the talks, the presenter discussed skill poisoning especially when they are chained with many off the shelf skills. A malicious skill can influence later tools, establish command-and-control behavior, or poison an agent’s memory without leaving a traditional binary signature.
+
 - **Agent integrity** requires much more than authorization at an MCP or tool boundary. Agent Identity, user intent, delegation, authorization, and auditability must survive the entire chain of action.
-- I left convinced that application developers, infrastructure engineers, SREs, and defenders need to be educated with offensive-security techniques. Security has always been everyone’s responsibility, even more so in agentic era.
-- ***This is simultaneously the most exciting and the most frightening time to work in computer security.***
+
+- I left convinced that application developers, infrastructure engineers, SREs, and defenders need to be educated with Cybersecurity fundamentals. Security has always been everyone’s responsibility, even more so in agentic era.
+
+- ***This is simultaneously the most exciting and the most frightening time to work in Cybersecurity.***
 
 ## AI Village
 
@@ -66,13 +73,13 @@ At AI Village and the conference at large, there were several talks and conversa
 
 **Panelists:** [Emanuel Gawrieh](https://hackertracker.app/defcon34/people/68972), [Jason Clinton](https://hackertracker.app/defcon34/people/68971), [Bruce Schneier](https://hackertracker.app/defcon34/people/67390), [Heather Adkins](https://hackertracker.app/defcon34/people/68973)
 
-The panel sharpened the ongoing debate over access to open-weight models. The same capabilities that help defenders can also enable vulnerability discovery, surveillance, censorship, and offensive operations and no single organization controls how those capabilities are released or used. Model access is therefore not merely a technical decision; it is also a governance, legal, regulatory, and geopolitical one.
+The panel spent a lot of time talking about the ongoing debate over access to open-weight models. The same capabilities that help defenders can also enable vulnerability discovery, surveillance, censorship, and offensive operations and no single organization controls how those capabilities are released or used. Model access is therefore not merely a technical decision; it is also a governance, legal, regulatory, and geopolitical one.
 
-The discussion was especially timely in light of [OpenAI’s disclosure of the Hugging Face security incident](https://www.youtube.com/watch?v=87DyyMV0kCY&t=2s). It reinforced my view that this is simultaneously the most exciting and the most frightening time to work in computer security.
+The discussion was especially timely in light of [OpenAI’s disclosure of the Hugging Face security incident](https://www.youtube.com/watch?v=87DyyMV0kCY&t=2s).
 
 ## Skills are part of the software supply chain
 
-One of the most important themes for me was the risk from malicious or poisoned agent skills. We are downloading and composing skills from many sources, much as we adopted open-source libraries and container images, but skills are often natural-language instructions rather than conventional binaries and hard to scan for vulnerability signatures.
+One of the most important themes for me was the risk from malicious or poisoned agent skills. We are downloading and composing skills from many internet sources like github but skills are natural-language instructions with additional optional scripts. Skills are not conventional binaries hence they are harder to scan for vulnerability signatures.
 
 <figure class="mb-4 notion-media">
   <a href="/assets/img/posts/defcon-34/malskills-demo-lab-defcon34.jpg">
@@ -85,7 +92,7 @@ One of the most important themes for me was the risk from malicious or poisoned 
   </figcaption>
 </figure>
 
-Nur Gucu’s Demo Lab made this risk tangible. The premise was simple and unsettling: an AI agent trusts the skills in its directory, so what happens when one of those skills is lying? The demonstration showed natural-language malware embedded in agent skill systems; no binary, shell instructions, or traditional malware signature, just English instructions executing with the agent’s tool and operating system access.
+Nur Gucu’s Demo Lab made this risk tangible. an AI agent trusts the skills in its directory, so what happens when one of those skills is malicious. The demonstration showed natural-language malware embedded in agent skills; no binary or traditional malware signature, just English instructions executing with the agent’s tool and operating system tools access.
 
 The lab demonstrated three escalating attack patterns:
 
@@ -93,11 +100,11 @@ The lab demonstrated three escalating attack patterns:
 - **Chain attack:** several individually benign-looking skills create an exfiltration path only when orchestrated together; no single skill appears malicious because the composition itself is the weapon.
 - **Persistent ghost:** a skill writes malicious behavior into agent memory so the behavior can survive file deletion and session restarts.
 
-The chain attack stood out to me because it exposes the limits of reviewing skills one file at a time. A malicious outcome can emerge from the interaction among innocent looking instructions, adapters, policies, memory, and tools. Progressive disclosure makes skills efficient, but it can also make the complete behavior harder for a user or even the model to inspect at once.
+The attack chain stood out to me because it exposes the limits of reviewing skills one file at a time. A malicious outcome can emerge from the interaction among innocent looking instructions, adapters, policies, memory, and tools. Progressive disclosure makes skills efficient, but it can also make the complete behavior harder for a user or even the model to inspect at once.
 
-The open-source [**MalSkills repository**](https://github.com/nuryslyrt/malskills) makes the idea reproducible with benign and planted examples, a proof collector, and a detector under development. The defensive side of the Demo Lab covered skill-integrity verification, capability-based sandboxing, orchestration-graph analysis, and runtime behavioral monitoring.
+The open-source [**MalSkills repository**](https://github.com/nuryslyrt/malskills) makes the idea reproducible with benign and planted examples, a proof collector, and a detector under development. The defensive side of the democovered skill-integrity verification, capability-based sandboxing, orchestration-graph analysis, and runtime behavioral monitoring.
 
-Tools such as the open-source [Cisco AI Defense Skill Scanner](https://github.com/cisco-ai-defense/skill-scanner) are beginning to apply static analysis, behavioral data-flow analysis, and semantic analysis to agent skills. These approaches may help identify known or probable risks, but they cannot establish that a skill is safe; human review, threat modeling, least privilege, and runtime controls remain necessary.
+Tools such as the open-source [Cisco AI Defense Skill Scanner](https://github.com/cisco-ai-defense/skill-scanner) are beginning to apply static analysis, behavioral data-flow analysis, and semantic analysis to agent skills. These approaches can help identify known or probable risks.
 
 ## Red Team Village
 
@@ -117,19 +124,19 @@ Tools such as the open-source [Cisco AI Defense Skill Scanner](https://github.co
 
 I spent much of lot of time in the Red Team Village because it resonated with me at the intersection of Security and Agentic.
 
-My read from the talks is that traditional tools penetration testing not disappearing but agents are becoming an orchestration and reasoning layer over those tools. Frontier models already understand how many established security tools work. Given an authorized target and appropriate context, an agent can map a codebase, select tools, generate probes, interpret results, and coordinate follow-up investigations.
+My read from the talks is that traditional penetration testing tools are not disappearing but agents are becoming an orchestration and reasoning layer over those tools. Frontier models already understand how many established security tools work. Given an authorized testing target and appropriate context, an agent can map a codebase, select tools, generate probes, interpret results, and coordinate follow-up investigations. There may be some nuance in how frontier models implemented guardrails on cyber security capabilities vs open-weight models.
 
 Autonomous penetration testing with agent swarms is becoming a reality. The human researcher remains essential for defining scope, validating evidence, assessing impact, and preventing unsafe actions, but the breadth and speed of testing can increase dramatically.
 
-This also changes what “good” penetration testing looks like. Checklist-driven, point-in-time testing is not enough. Effective testing must think like an adversary, explore unexpected paths, and produce reproducible evidence showing whether a suspected weakness is actually exploitable.
+This also changes what “solid” penetration testing looks like. Checklist-driven, point-in-time testing is not enough. Effective testing must use sophisticated agentic tools and code graphs, think like an adversary, explore unexpected paths, and produce reproducible evidence showing whether a suspected weakness is actually exploitable.
 
-I believe penetration testing should be a [continuous loop](https://sriaradhyula.github.io/posts/engineers-write-the-rules-agents-run-the-ship-loop/), not a semiannual event. As systems and attack paths change, authorized agents can continuously test them in controlled environments and return evidence to engineers, while humans define scope, approve sensitive actions, and review the results.
+I believe penetration testing should be a [continuous loop](https://sriaradhyula.github.io/posts/engineers-write-the-rules-agents-run-the-ship-loop/), not just a point-in-time checkbox like a semiannual event. As systems and attack paths change, authorized agents can continuously test software in controlled environments and return evidence to engineers, while humans define scope, approve sensitive actions, and review the results.
 
 ### Agent-assisted vulnerability research
 
-At a Red Team Village workshop called **Vulnpocalypse**, I worked with a custom skill authored by **Chris Haller** that uses frontier models to hunt for vulnerabilities and potential zero-days. A well-designed skill can guide a model through source-code mapping, trust-boundary analysis, hypothesis generation, testing, and the collection of reproducible evidence.
+At a Red Team Village workshop called **Vulnpocalypse**, I worked with a custom skill authored by **Chris Haller** that uses frontier models to hunt for vulnerabilities and potential zero-days. A well-designed skill can guide a model through source-code mapping, trust-boundary analysis, hypothesis generation, testing, and the collection of reproducible evidence. 
 
-I experimented with this approach against our code and upstream dependencies. The exercise gave me useful insight into how frontier models can support vulnerability research, while reinforcing the importance of validating their analysis within the relevant code paths and trust boundaries.
+I experimented with this approach against opensource code and upstream dependencies. The exercise gave me useful insight into how frontier models can support vulnerability research, while reinforcing the importance of validating their analysis within the relevant code paths and trust boundaries. This workshop also demostrated that, defenders and developers can use frontier models that are not Mythos or GPT Cyber class models and yet are able to find vulnerabilities and 0-days
 
 A model-generated finding is only a hypothesis. Establishing a credible vulnerability requires reproducible evidence, a clear assessment of impact, and careful validation against the actual code path.
 
@@ -156,7 +163,7 @@ Any offensive tooling must be reviewed and run only in an isolated environment a
   <figcaption class="text-center mt-2">DEF CON badge with add-ons from AI Village and one I made. SAOs are “shitty add-ons” in DEF CON terminology.</figcaption>
 </figure>
 
-DEF CON badge is not merely an entrance credential. It is an extensible circuit board with a camera and QR scanner, powered by batteries and designed for interaction with other attendees. It changes behavior as people connect, scan, and explore it, and its expansion pins allow SAOs to be attached. It is a wonderful learn and hack on to these boards.
+DEF CON badge is an extensible circuit board with a camera and QR scanner, powered by batteries and designed for interaction with other attendees. It changes behavior as people connect, scan, and explore it, and its expansion pins allow SAOs to be attached. I have seen some attendees attach laser tag modules and use them. It is a wonderful learn and hack on to these boards. 
 
 ### Learning to solder
 
@@ -251,18 +258,18 @@ At DEF CON, “hacking” is used in its broadest sense: deeply understanding ho
 
 ## What I am taking back
 
-My biggest takeaway is that security is increasing going agentic both at scale and speed.
+My biggest takeaway is that security offense and defense is increasing going agentic both at scale and speed.
 
 For infrastructure and SRE teams, it is no longer sufficient to wait for a conventional penetration test and remediate a checklist of findings. We should understand how modern attackers use frontier models, understand the same techniques within authorized environments, and build those lessons into continuous defensive loops.
 
-For many DevSecOps team, that means investing in:
+For many DevSecOps/Infra/SRE teams, that means investing in:
 
 - Security focused agent skills.
 - Strong identity and delegation across agent boundaries.
 - Per-action authorization, downscoping, and auditability.
 - Detection of prompt, skill, memory, and tool-chain poisoning.
 
-DEF CON reminded me that learning the attacker’s craft is not separate from defense. It is how defenders stay one step ahead.
+**DEF CON reminded me that learning the attacker’s craft is not separate from defense. It is how defenders stay one step ahead.**
 
 ---
 
